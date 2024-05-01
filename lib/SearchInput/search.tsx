@@ -13,7 +13,6 @@ interface InputProps {
   required?: boolean;
   maxLength?: number;
   secondary?: boolean;
-  fullWidth?: boolean;
   rounded?: boolean;
   small?: boolean;
   large?: boolean;
@@ -42,7 +41,6 @@ export const Search = ({
   maxLength,
   htmlFor,
   secondary,
-  fullWidth,
   large,
   nooutline,
   style,
@@ -128,8 +126,7 @@ export const Search = ({
           required={required}
           maxLength={maxLength}
           defaultValue={defaultValue}
-          className={`focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400 ${style}
-            ${fullWidth ? "w-full" : "w-fit"}
+          className={`focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400 w-full ${style}
             ${rounded ? "rounded-full" : "rounded-md"}
             ${
               large

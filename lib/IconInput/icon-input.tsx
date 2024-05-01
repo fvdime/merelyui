@@ -60,7 +60,7 @@ export const IconInput = ({
   icon,
 }: InputProps) => {
   return (
-    <div className="w-full">
+    <div className={`${fullWidth ? "w-full" : "w-fit"}`}>
       <label
         htmlFor={htmlFor}
         className={`block mb-2 text-sm ${!label && "sr-only"}`}

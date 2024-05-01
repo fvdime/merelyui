@@ -54,7 +54,7 @@ export const Input = ({
   transparent,
 }: InputProps) => {
   return (
-    <div className="w-full">
+    <div className={`${fullWidth ? "w-full" : "w-fit"}`}>
       <label
         htmlFor={htmlFor}
         className={`block mb-2 text-sm ${!label && "sr-only"}`}
@@ -95,8 +95,8 @@ export const Input = ({
       ${transparent ? "bg-transparent" : "bg-zinc-50"}
 			${nooutline ? "border-none bg-zinc-200" : "border border-zinc-300"}
 			${
-        disabled
-          && "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed"
+        disabled &&
+        "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed"
       }
 			${secondary ? "" : ""}
 		`}
