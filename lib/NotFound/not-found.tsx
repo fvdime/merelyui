@@ -6,7 +6,7 @@ interface NotFoundPageProps {
   quaternary?: boolean;
 }
 
-export const NotFoundPage = ({
+export const NotFound = ({
   href,
   primary,
   secondary,
