@@ -121,7 +121,7 @@ export const IconTextArea = ({
           required={required}
           maxLength={maxLength}
           defaultValue={defaultValue}
-          className={`focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400 focus:border-blue-500${style}
+          className={`focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400 rounded-sm ${style}
             ${fullWidth ? "w-full" : "w-fit"}
             ${
               large

@@ -85,7 +85,7 @@ export const TextArea = ({
         defaultValue={defaultValue}
         onChange={onChange}
         onBlur={onBlur}
-        className={`py-2 px-4 focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400 ${style}
+        className={`py-2 px-4 focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400 rounded-sm ${style}
 			${fullWidth ? "w-full" : "w-fit"}
       ${large ? "px-4 py-5 text-lg placeholder:text-lg" : `${small ? "text-xs py-[0.3rem] px-4 placeholder:text-xs" : "py-2.5 px-4 text-sm placeholder:text-sm"}`}
       ${transparent ? "bg-transparent" : "bg-zinc-50"}
