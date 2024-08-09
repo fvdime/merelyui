@@ -13,3 +13,4 @@ export { Alert } from "./Alert/alert"
 export { SocialLink } from './SocialLink/social-link'
 export { Footer } from './Footer/footer'
 export { Navbar } from './Navbar/navbar'
+export { Drawer } from './Drawer/drawer'
