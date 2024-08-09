@@ -8,6 +8,7 @@ import dts from 'vite-plugin-dts'
 export default defineConfig({
   plugins: [react(), tsconfigPaths(), dts({ rollupTypes: true })],
   build: {
+    sourcemap: true,
     lib: {
       entry: resolve(__dirname, 'lib/main.ts'),
       name: 'merelyui',
