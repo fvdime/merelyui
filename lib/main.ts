@@ -10,3 +10,4 @@ export { TextArea } from "./TextArea/textarea"
 export { IconTextArea } from "./IconTextArea/icon-textarea"
 export { NotFound } from "./NotFound/not-found"
 export { Alert } from "./Alert/alert"
+export { SocialLink } from './SocialLink/social-link'
