@@ -32,6 +32,7 @@ export const Carousel = ({ id, data, secondary }: CarouselProps) => {
           {data.map((item, index) => (
             <a
               key={index}
+              target={item.target}
               href={item.href ? item.href : ""}
               className={`absolute w-full h-full transition-opacity duration-700 ease-in-out
               ${active === index ? "opacity-100" : "opacity-0"}

@@ -29,6 +29,7 @@ export const CardCarousel = ({ id, data }: CardCarouselProps) => {
     <div id={id} className="relative w-full">
       <div className="flex items-center justify-end mb-4">
         <button
+          type="button"
           onClick={handlePrev}
           className={`text-black
             ${currentIndex === 0 ? "opacity-20 cursor-default" : "hover:-translate-x-1 ease-linear duration-300 transition cursor-pointer"}
@@ -51,6 +52,7 @@ export const CardCarousel = ({ id, data }: CardCarouselProps) => {
           </svg>
         </button>
         <button
+          type="button"
           onClick={handleNext}
           disabled={currentIndex === data.length - 1}
           className={`text-black
