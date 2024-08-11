@@ -15,7 +15,12 @@ interface WithTerminal extends ClipboardBaseProps {
   terminal: true;
 }
 
-type ClipboardProps = WithTitle | WithTerminal;
+interface AsBase extends ClipboardBaseProps {
+  title?: never;
+  terminal?: never;
+}
+
+type ClipboardProps = WithTitle | WithTerminal | AsBase;
 
 export const Clipboard = ({
   children,
