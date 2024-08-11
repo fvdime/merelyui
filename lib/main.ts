@@ -21,3 +21,4 @@ export { ToolTip } from "./ToolTip/tooltip";
 export { Tabs } from "./Tabs/tabs";
 export { Modal } from "./Modal/modal";
 export { Link } from "./Link/link";
+export { Accordion } from "./Accordion/accordion";
