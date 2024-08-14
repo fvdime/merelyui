@@ -25,3 +25,4 @@ export { Accordion } from "./Accordion/accordion";
 export { Clipboard } from "./Clipboard/clipboard";
 export { Masonry } from "./Masonry/masonry";
 export { HeroBanner } from "./HeroBanner/hero-banner";
+export { Card } from "./Card/card";
