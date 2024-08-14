@@ -24,3 +24,4 @@ export { Link } from "./Link/link";
 export { Accordion } from "./Accordion/accordion";
 export { Clipboard } from "./Clipboard/clipboard";
 export { Masonry } from "./Masonry/masonry";
+export { HeroBanner } from "./HeroBanner/hero-banner";
