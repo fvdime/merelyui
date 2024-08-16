@@ -57,7 +57,7 @@ export const IconTextArea = ({
       : underline
         ? "border-b bg-transparent"
         : "border border-zinc-300",
-    nooutline ? "border-none bg-zinc-200" : "border border-zinc-300",
+    transparent ? "bg-transparent" : "bg-zinc-50",
     disabled &&
       "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed",
   ].join(" ");
