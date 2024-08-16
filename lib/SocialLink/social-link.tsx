@@ -1,15 +1,23 @@
-interface SocialLinkProps {
+import { AdjustSizeProps } from "../utils/adjust-size";
+
+interface SocialLinkBase {
   label?: string;
-  social: "Github" | "LinkedIn" | "Instagram" | "Facebook" | "Youtube" | "X" | "TikTok" | "Discord";
+  social:
+    | "Github"
+    | "LinkedIn"
+    | "Instagram"
+    | "Facebook"
+    | "Youtube"
+    | "X"
+    | "TikTok"
+    | "Discord";
   href: string;
   secondary?: boolean;
-  fullWidth?: boolean;
-  rounded?: boolean;
-  small?: boolean;
-  large?: boolean;
   onClick?: () => void;
   disabled?: boolean;
 }
+
+type SocialLinkProps = AdjustSizeProps<SocialLinkBase>;
 
 export const SocialLink = ({
   social,
@@ -17,12 +25,10 @@ export const SocialLink = ({
   label,
   secondary,
   onClick,
-  fullWidth,
   large,
   disabled,
   small,
-  rounded,
-}: SocialLinkProps)  => {
+}: SocialLinkProps) => {
   const renderSocialIcon = () => {
     switch (social) {
       case "Instagram":
@@ -167,17 +173,16 @@ export const SocialLink = ({
     <a
       href={disabled ? undefined : href}
       onClick={disabled ? undefined : onClick}
-      className={`text-center transition-all ease-in duration-300
-        ${fullWidth ? "w-full" : "w-fit"}
-        ${rounded ? "rounded-full" : "rounded-md"}
-        ${small ? "text-xs" : large ? "text-lg" : "text-sm" }
-        ${ disabled && "text-gray-400 border-gray-300 shadow-none cursor-not-allowed" }
-        ${secondary ? `flex flex-col justify-center items-center text-black bg-zinc-100 ${!disabled && "hover:bg-gray-200"} border border-zinc-300 focus:ring focus:ring-zinc-200 focus:outline-none ${small ? "p-2" : large ? "p-4" : "p-3" }` : "text-gray-500 hover:text-gray-900 bg-transparent"}
+      target="_blank"
+      className={`text-center transition-all ease-in duration-300 bg-transparent text-black hover:text-black/50
+        ${small ? "text-xs" : large ? "text-lg" : "text-sm"}
+        ${disabled && "text-gray-200 shadow-none cursor-not-allowed"}
+        ${secondary && "flex flex-row justify-center items-center gap-2"}
         `}
     >
       {renderSocialIcon()}
       <span className="sr-only">{social}</span>
-      {label}
+      {secondary && label}
     </a>
   );
 };
