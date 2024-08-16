@@ -1,6 +1,6 @@
 import "./merelyui.css"
 
-export { Button } from "./Button/Button";
+export { Button } from "./Button/button";
 export { IconButton } from "./IconButton/icon-button";
 export { Input } from "./Input/input";
 export { IconInput } from "./IconInput/icon-input";
@@ -26,3 +26,4 @@ export { Clipboard } from "./Clipboard/clipboard";
 export { Masonry } from "./Masonry/masonry";
 export { HeroBanner } from "./HeroBanner/hero-banner";
 export { Card } from "./Card/card";
+export { Kbd } from "./Kbd/kbd";

@@ -11,6 +11,10 @@ type Story = StoryObj<typeof Search>
 
 export const Default: Story = {
   args: {
-    placeholder: "Search"
+    placeholder: "Search...",
+    htmlFor: "search",
+    nooutline: true,
+    transparent: true,
+    kbd: "Ctrl K"
   }
 }

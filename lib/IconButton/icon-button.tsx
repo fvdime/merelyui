@@ -1,28 +1,38 @@
-import type { ReactNode } from "react";
+import React from "react";
+import { AdjustSizeProps } from "../utils/adjust-size";
 
-interface IconButtonProps {
-  children: ReactNode;
-  secondary?: boolean;
+interface IconButtonBase {
+  label?: string;
   fullWidth?: boolean;
   rounded?: boolean;
   small?: boolean;
   large?: boolean;
   onClick?: () => void;
   disabled?: boolean;
-  outline?: boolean;
   loading?: boolean;
   like?: boolean;
   close?: boolean;
   style?: string;
-  icon?: any;
-  label?: boolean;
-  transparent?: boolean;
+  icon?: React.ReactElement;
   endIcon?: boolean;
 }
 
-export const IconButton= ({
-  children,
-  secondary,
+interface OutlineIconButton extends IconButtonBase {
+  outline?: boolean;
+  transparent?: never;
+}
+
+interface TransparentIconButton extends IconButtonBase {
+  transparent?: boolean;
+  outline?: never;
+}
+
+type IconButton = OutlineIconButton | TransparentIconButton;
+
+type IconButtonProps = AdjustSizeProps<IconButton>;
+
+
+export const IconButton = ({
   fullWidth,
   large,
   onClick,
@@ -39,36 +49,48 @@ export const IconButton= ({
   endIcon,
   transparent,
 }: IconButtonProps) => {
+  const baseClasses =
+    "flex flex-row items-center justify-center gap-2 text-black focus:ring focus:ring-zinc-200 focus:outline-none transition-all ease-in duration-300";
+  const widthClasses = fullWidth ? "w-full" : "w-fit";
+  const roundedClasses = rounded ? "rounded-full" : "rounded-lg";
+  const sizeClasses = large
+    ? "p-4 text-lg"
+    : small
+      ? "p-1.5 text-xs"
+      : "p-3 text-sm";
+  const outlineClasses = outline
+    ? "bg-transparent hover:bg-zinc-50 border"
+    : transparent
+      ? "bg-transparent border-none"
+      : "bg-zinc-100 border";
+  const disabledClasses = disabled
+    ? "disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed"
+    : transparent
+      ? "hover:text-zinc-700"
+      : "hover:bg-zinc-200";
+  const iconClasses = `${small ? "w-3.5 h-3.5" : "w-5 h-5"} ${
+    large && "w-6 h-6"
+  }`;
+  const closeIconClasses = `${small ? "w-2.5 h-2.5" : "w-3 h-3"} ${
+    large && "w-4 h-4"
+  }`;
+  const loadingClasses = `text-gray-200 animate-spin fill-blue-500 animate-spin shrink-0 ${
+    small ? "w-3 h-3" : "w-4 h-4"
+  } ${large && "w-6 h-6"}`;
+
   return (
     <button
       disabled={disabled}
       onClick={onClick}
-      className={`flex flex-row items-center justify-center gap-2 text-zinc-950 focus:ring focus:ring-zinc-200 focus:outline-none transition-all ease-in duration-300 ${style}
-    ${fullWidth ? "w-full" : "w-fit"}
-    ${rounded ? "rounded-full" : "rounded-lg"}
-    ${large && "p-4 text-lg"}
-    ${small ? "p-1.5 text-xs" : "p-3 text-sm"}
-    ${transparent ? "bg-transparent border-none" : "border border-zinc-300"}
-
-    ${outline ? "bg-transparent hover:bg-zinc-100" : "bg-zinc-100"}
-    ${
-      disabled
-        ? "disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed"
-        : "hover:text-zinc-700 hover:bg-zinc-200"
-    }
-    ${secondary ? "" : ""}
-
-    `}
+      className={`${baseClasses} ${style} ${widthClasses} ${roundedClasses} ${sizeClasses} ${outlineClasses} ${disabledClasses}`}
     >
       {icon ? (
-        <>{icon}</>
+        icon
       ) : (
         <>
           {like && (
             <svg
-              className={`${small ? "w-3.5 h-3.5" : "w-5 h-5"} ${
-                large && "w-6 h-6"
-              }`}
+              className={iconClasses}
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -79,9 +101,7 @@ export const IconButton= ({
           )}
           {close && (
             <svg
-              className={`${small ? "w-2.5 h-2.5" : "w-3 h-3"} ${
-                large && "w-4 h-4"
-              }`}
+              className={closeIconClasses}
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -99,33 +119,29 @@ export const IconButton= ({
           {loading && (
             <svg
               aria-hidden="true"
-              role="status"
-              className={`text-black animate-spin ${
-                small ? "w-3 h-3" : "w-4 h-4"
-              } ${large && "w-6 h-6"}`}
+              className={loadingClasses}
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
                 d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                fill="#030303"
-              ></path>
+                fill="currentColor"
+              />
               <path
                 d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                fill="currentColor"
-              ></path>
+                fill="currentFill"
+              />
             </svg>
           )}
         </>
       )}
-
       <span
         className={`${label ? "font-medium" : "sr-only"} ${
           endIcon ? "order-first" : "order-last"
         }`}
       >
-        {children}
+        {label}
       </span>
     </button>
   );

@@ -1,11 +1,23 @@
 import React, { useImperativeHandle, useState } from "react";
 
-interface ModalProps {
+interface ModalBase {
+  id?: string;
+  title: string;
   body?: React.ReactElement;
   footer?: React.ReactElement;
-  label: string;
-  title: string;
 }
+
+interface ModalWithButton extends ModalBase {
+  button: React.ReactElement;
+  label?: never;
+}
+
+interface ModalWithoutButton extends ModalBase {
+  label: string;
+  button?: never;
+}
+
+export type ModalProps = ModalWithButton | ModalWithoutButton;
 
 export interface ModalHandle {
   openModal: () => void;
@@ -13,7 +25,7 @@ export interface ModalHandle {
 }
 
 export const Modal = React.forwardRef<ModalHandle, ModalProps>(
-  ({ body, footer, label, title }, ref) => {
+  ({ body, footer, label, title, button }, ref) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     useImperativeHandle(
@@ -32,12 +44,15 @@ export const Modal = React.forwardRef<ModalHandle, ModalProps>(
     return (
       <div className="relative">
         {/* Toggle Button */}
-        <button
-          className="inline-flex items-center justify-center gap-1 text-black border px-4 py-2 rounded transition duration-300 ease-in-out"
-          onClick={toggleModal}
-        >
-          {label}
-        </button>
+        {button ? button : null}
+        {label && (
+          <button
+            className="px-4 py-2 bg-red-500 text-white rounded mt-4"
+            onClick={toggleModal}
+          >
+            {label}
+          </button>
+        )}
 
         <div
           onClick={toggleModal}

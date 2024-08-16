@@ -14,6 +14,6 @@ export const Default: Story = {
     src: 'https://the-faya.vercel.app/_next/image?url=https%3A%2F%2Fyunga-storage.s3.eu-north-1.amazonaws.com%2Faa.jpg&w=750&q=75',
     rounded: true,
     bri: true,
-    label: "1"
+    label: "1",
   }
 }

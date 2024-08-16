@@ -1,4 +1,6 @@
-interface AvatarProps {
+import { AdjustSizeProps } from "../utils/adjust-size";
+
+interface AvatarBase {
   src?: string;
   alt?: string;
   rounded?: boolean;
@@ -13,6 +15,8 @@ interface AvatarProps {
   bri?: boolean;
   ring?: boolean;
 }
+
+type AvatarProps = AdjustSizeProps<AvatarBase>;
 
 export const Avatar = ({
   src,
@@ -29,72 +33,58 @@ export const Avatar = ({
   bri,
   ring,
 }: AvatarProps) => {
-  return (
-    <div className={`w-fit h-fit relative`}>
-      {initials ? (
-        <>
-          {" "}
-          <div
-            className={`bg-gray-500 flex items-center justify-center cursor-pointer uppercase hover:brightness-75 duration-300 transition-all ease-in
-        ${rounded ? "rounded-full" : "rounded-lg"}
-        ${large ? "w-16 h-16" : `${small ? "w-8 h-8" : "w-12 h-12"}`}
-        ${disabled && "grayscale hover:cursor-not-allowed"}
-        ${ring && "ring"} `}
-          >
-            <span
-              className={`font-medium text-white ${
-                large ? "text-xl" : `${small ? "text-xs" : "text-base"}`
-              }`}
-            >
-              {initials}
-            </span>
-          </div>
-        </>
-      ) : (
-        <>
-          <img
-            className={`cursor-pointer rounded-full object-cover object-center hover:brightness-75 duration-300 transition-all ease-in
-        ${rounded ? "rounded-full" : "rounded-lg"}
-        ${large ? "w-16 h-16" : `${small ? "w-8 h-8" : "w-12 h-12"}`}
-        ${disabled && "grayscale hover:cursor-not-allowed"}
-        ${ring && "ring"}
+  const sizeClasses = large ? "w-16 h-16" : small ? "w-8 h-8" : "w-12 h-12";
+  const textSizeClasses = large ? "text-xl" : small ? "text-xs" : "text-base";
+  const baseClasses = `
+      ${rounded ? "rounded-full" : "rounded-lg"}
+      ${sizeClasses}
+      ${disabled ? "grayscale cursor-not-allowed" : "cursor-pointer"}
+      ${ring && "ring"}
+      object-cover object-center hover:brightness-75 duration-300 transition-all ease-in
+    `;
 
-        `}
-            src={src}
-            alt={alt}
-          />
-        </>
+  const badgePositionClasses = `
+      ${tli && "-top-0.5 -left-0.5"}
+      ${tri && "-top-0.5 -right-0"}
+      ${bli && "bottom-0.5 -left-0.5"}
+      ${bri && "bottom-0.5 right-0"}
+    `;
+
+  const badgeSizeClasses = large ? "p-2" : small ? "p-1" : "p-1.5";
+
+  return (
+    <div className="w-fit h-fit relative">
+      {initials ? (
+        <div
+          className={`bg-gray-500 flex items-center justify-center uppercase ${baseClasses}`}
+        >
+          <span className={`font-medium text-white ${textSizeClasses}`}>
+            {initials}
+          </span>
+        </div>
+      ) : (
+        <img className={baseClasses} src={src} alt={alt} />
       )}
 
-      {tli || tri || bli || bri ? (
+      {(tli || tri || bli || bri) && (
         <span
-          className={`absolute
-          ${tli && "-top-0.5 -left-0.5"}
-          ${tri && "-top-0.5 -right-0"}
-          ${bli && "bottom-0.5 -left-0.5"} 
-          ${bri && "bottom-0.5 right-0"}
-          ${large ? "p-2" : `${small ? "p-1" : "p-1.5"}`}
-           bg-green-600 rounded-full outline outline-2 outline-white`}
+          className={`absolute ${badgePositionClasses} ${badgeSizeClasses} bg-green-600 rounded-full outline outline-2 outline-white`}
         />
-      ) : null}
+      )}
 
-      {(tli || tri || bli || bri) && label ? (
+      {label && (tli || tri || bli || bri) && (
         <span
-          className={`absolute
-          ${tli && "-top-0.5 -left-0.5"}
-          ${tri && "-top-0.5 -right-0"}
-          ${bli && "bottom-0.5 -left-0.5"} 
-          ${bri && "bottom-0.5 right-0"}
-          ${
+          className={`absolute ${badgePositionClasses} bg-green-600 text-white py-0 rounded-full outline outline-2 outline-white text-xs ${
             large
-              ? "px-1.5 text-sm font-medium"
-              : `text-xs ${small ? "px-1 text-center" : "px-1.5 font-medium"}`
-          }
-           bg-green-600 py-0 rounded-full outline outline-2 outline-white text-white`}
+              ? "px-1.5 font-medium"
+              : small
+                ? "px-1 "
+                : "px-1.5 font-medium"
+          }`}
         >
           {label}
         </span>
-      ) : null}
+      )}
     </div>
   );
-}
+};

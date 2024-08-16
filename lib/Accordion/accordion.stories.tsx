@@ -22,6 +22,7 @@ export const Default: Story = {
             deleniti voluptate voluptas? Incidunt.
           </p>
         ),
+        secondary: true,
       },
       {
         title: "Accordion Title 2",
@@ -33,6 +34,7 @@ export const Default: Story = {
             dolore reiciendis?
           </p>
         ),
+        secondary: true,
       },
     ],
   },

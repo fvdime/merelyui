@@ -11,6 +11,7 @@ type Story = StoryObj<typeof IconButton>
 
 export const Default: Story = {
   args: {
-    children: "haro"
+    label: "Icon Button",
+    like: true,
   }
 }
