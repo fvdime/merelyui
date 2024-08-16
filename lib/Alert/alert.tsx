@@ -7,7 +7,6 @@ export const Alert = ({
   id,
   onClick,
   dismissible,
-  fullWidth,
   status,
   icon,
   position = "top-right",
@@ -29,9 +28,7 @@ export const Alert = ({
   }, [onClick]);
 
   const baseClasses =
-    "h-fit flex items-center justify-center gap-2 py-2.5 px-4 rounded border focus:ring focus:ring-zinc-200 focus:outline-none transition-all ease-in duration-300 cursor-pointer";
-
-  const widthClass = fullWidth ? "w-full" : "w-fit max-w-md";
+    "min-w-36 max-w-96 h-fit flex items-center justify-center gap-2 py-2.5 px-4 rounded border transition-all ease-in-out duration-500 cursor-pointer fixed z-[99]";
 
   const statusClasses = {
     info: "border-zinc-200 text-zinc-950 hover:text-zinc-800",
@@ -54,8 +51,12 @@ export const Alert = ({
     "top-right": visible ? "translate-x-0" : "translate-x-full",
     "bottom-left": visible ? "translate-x-0" : "-translate-x-full",
     "bottom-right": visible ? "translate-x-0" : "translate-x-full",
-    top: visible ? "translate-y-0" : "-translate-y-full",
-    bottom: visible ? "translate-y-0" : "translate-y-full",
+    top: visible
+      ? "translate-y-0 animate-slideOutDown"
+      : "-translate-y-full animate-slideInUp",
+    bottom: visible
+      ? "translate-y-0 animate-slideInUp"
+      : "translate-y-full animate-slideOutDown",
   }[position];
 
   const iconMap = {
@@ -116,7 +117,7 @@ export const Alert = ({
   return (
     <div
       id={id}
-      className={`fixed z-[99] duration-500 ease ${positionClasses} ${animationClasses} ${baseClasses} ${widthClass} ${statusClasses}`}
+      className={`${positionClasses} ${animationClasses} ${baseClasses} ${statusClasses}`}
     >
       <div
         className={`w-full gap-2.5 ${

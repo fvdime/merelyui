@@ -53,6 +53,24 @@ export default {
             opacity: 0,
           },
         },
+        slideInUp: {
+          "0%": {
+            visibility: "visible",
+            transform: "translate3d(0, 100%, 0)",
+          },
+          "100%": {
+            transform: "translate3d(0, 0, 0)",
+          },
+        },
+        slideOutDown: {
+          "0%": {
+            transform: "translate3d(0, 0, 0)",
+          },
+          "100%": {
+            visibility: "hidden",
+            transform: "translate3d(0, 100%, 0)",
+          },
+        },
       },
       animation: {
         slideIn: 'slideIn 0.5s ease-in-out',
@@ -60,6 +78,8 @@ export default {
         zoomOut: "zoomOut 1s ease-out 0.25s 1",
         fadeIn: 'fadeIn 1s ease-in-out 0.25s 1',
         fadeOut: 'fadeOut 1s ease-out 0.25s 1',
+        slideInUp: 'slideInUp 1s ease-in-out 0.25s 1',
+        slideOutDown: 'slideOutDown 1s ease-in-out 0.25s 1',
       },
     },
   },

@@ -13,7 +13,6 @@ export const Default: Story = {
   args: {
     title: "Allow Cookies",
     content: " We use cookies. By tapping 'accept,' you consent to the use of these methods by us and third parties.",
-    info: true,
     dismissible: true
   }
 }
