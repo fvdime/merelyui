@@ -65,8 +65,7 @@ export const Input = ({
     rounded ? "rounded-full" : "rounded-md",
     large
       ? "px-4 py-5 text-lg placeholder:text-lg"
-      : "py-2.5 px-4 text-sm placeholder:text-sm",
-    small ? "text-xs py-[0.3rem] px-4 placeholder:text-xs" : "",
+      :  small ? "text-xs py-[0.3rem] px-4 placeholder:text-xs" : "py-2.5 px-4 text-sm placeholder:text-sm",
     transparent ? "bg-transparent" : "bg-zinc-50",
     nooutline ? "border-none bg-zinc-200" : "border border-zinc-300",
     disabled &&

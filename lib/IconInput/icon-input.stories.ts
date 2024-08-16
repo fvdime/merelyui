@@ -12,6 +12,7 @@ type Story = StoryObj<typeof IconInput>
 export const Default: Story = {
   args: {
     placeholder: "Type Here",
+    htmlFor: "email",
     email: true
   }
 }
