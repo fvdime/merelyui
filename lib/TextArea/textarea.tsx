@@ -72,12 +72,12 @@ export const TextArea = ({
   ].join(" ");
 
   return (
-    <div className="w-full">
+    <div className={`${fullWidth ? "w-full" : "w-fit"}`}>
       <label
         htmlFor={htmlFor}
         className={`block text-sm ${!label && "sr-only"}`}
       >
-        {label ? label : ""}
+        {label}
       </label>
       <div
         className={`w-full flex items-center mb-2 text-sm text-zinc-700 ${justifyContentClasses(
