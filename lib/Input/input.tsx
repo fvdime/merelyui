@@ -1,28 +1,9 @@
 import { AdjustSizeProps } from "../utils/adjust-size";
+import { BaseInputProps } from "../utils/types";
 
-interface InputBase {
-  placeholder: string;
-  htmlFor: string;
-  value?: string;
+interface InputBase extends BaseInputProps {
   type?: string;
-  name?: string;
-  id?: string;
-  disabled?: boolean;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  defaultValue?: string;
-  label?: string;
-  required?: boolean;
-  maxLength?: number;
-  fullWidth?: boolean;
   rounded?: boolean;
-  nooutline?: boolean;
-  transparent?: boolean;
-  style?: string;
-  tll?: string;
-  trl?: string;
-  bll?: string;
-  brl?: string;
 }
 
 type InputProps = AdjustSizeProps<InputBase>;

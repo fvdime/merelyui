@@ -1,28 +1,9 @@
 import React from "react";
 import { AdjustSizeProps } from "../utils/adjust-size";
+import { BaseInputProps } from "../utils/types";
 
-interface IconTextAreaBase {
-  placeholder: string;
-  htmlFor: string;
+interface IconTextAreaBase extends BaseInputProps {
   rows?: number;
-  value?: string;
-  name?: string;
-  id?: string;
-  disabled?: boolean;
-  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  onBlur?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  defaultValue?: string;
-  label?: string;
-  required?: boolean;
-  maxLength?: number;
-  fullWidth?: boolean;
-  nooutline?: boolean;
-  transparent?: boolean;
-  style?: string;
-  tll?: string;
-  trl?: string;
-  bll?: string;
-  brl?: string;
   email?: boolean;
   icon?: React.ReactElement;
 }

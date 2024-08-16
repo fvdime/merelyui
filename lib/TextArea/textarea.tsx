@@ -1,27 +1,8 @@
 import { AdjustSizeProps } from "../utils/adjust-size";
+import { BaseInputProps } from "../utils/types";
 
-interface TextAreaBase {
-  placeholder: string;
-  htmlFor: string;
+interface TextAreaBase extends BaseInputProps {
   rows?: number;
-  value?: string;
-  name?: string;
-  id?: string;
-  disabled?: boolean;
-  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  onBlur?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  defaultValue?: string;
-  label?: string;
-  required?: boolean;
-  maxLength?: number;
-  fullWidth?: boolean;
-  nooutline?: boolean;
-  transparent?: boolean;
-  style?: string;
-  tll?: string;
-  trl?: string;
-  bll?: string;
-  brl?: string;
 }
 
 type TextAreaProps = AdjustSizeProps<TextAreaBase>;
