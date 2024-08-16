@@ -1,5 +1,6 @@
 import React from "react";
 import { Kbd } from "merelyui";
+import { AdjustSizeProps } from "../utils/adjust-size";
 interface SearchInputBase {
   placeholder: string;
   htmlFor: string;
@@ -25,22 +26,7 @@ interface SearchInputBase {
   kbd?: string;
 }
 
-interface SmallSize extends SearchInputBase {
-  small: true;
-  large?: never;
-}
-
-interface LargeSize extends SearchInputBase {
-  small?: never;
-  large: true;
-}
-
-interface DefaultSize extends SearchInputBase {
-  small?: false;
-  large?: false;
-}
-
-type SearchInputProps = SmallSize | LargeSize | DefaultSize;
+type SearchInputProps = AdjustSizeProps<SearchInputBase>;
 
 export const Search = ({
   placeholder,

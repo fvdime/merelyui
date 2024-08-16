@@ -1,4 +1,6 @@
-interface AvatarProps {
+import { AdjustSizeProps } from "../utils/adjust-size";
+
+interface AvatarBase {
   src?: string;
   alt?: string;
   rounded?: boolean;
@@ -13,6 +15,8 @@ interface AvatarProps {
   bri?: boolean;
   ring?: boolean;
 }
+
+type AvatarProps = AdjustSizeProps<AvatarBase>;
 
 export const Avatar = ({
   src,

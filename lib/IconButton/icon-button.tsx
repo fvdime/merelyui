@@ -1,4 +1,5 @@
 import React from "react";
+import { AdjustSizeProps } from "../utils/adjust-size";
 
 interface IconButtonBase {
   label?: string;
@@ -26,7 +27,10 @@ interface TransparentIconButton extends IconButtonBase {
   outline?: never;
 }
 
-type IconButtonProps = OutlineIconButton | TransparentIconButton;
+type IconButton = OutlineIconButton | TransparentIconButton;
+
+type IconButtonProps = AdjustSizeProps<IconButton>;
+
 
 export const IconButton = ({
   fullWidth,

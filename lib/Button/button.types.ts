@@ -1,4 +1,5 @@
 import React from "react";
+import { AdjustSizeProps } from "../utils/adjust-size";
 interface ButtonBase {
   children: React.ReactNode;
   id?: string;
@@ -9,7 +10,7 @@ interface ButtonBase {
   style?: string;
 }
 
-interface Button extends ButtonBase {
+interface NonDisabledButton extends ButtonBase {
   onClick?: () => void;
   disabled?: false;
   outline?: boolean;
@@ -21,4 +22,6 @@ interface DisabledButton extends ButtonBase {
   outline?: never;
 }
 
-export type ButtonProps = Button | DisabledButton;
+type Button = NonDisabledButton | DisabledButton;
+
+export type ButtonProps = AdjustSizeProps<Button>;
