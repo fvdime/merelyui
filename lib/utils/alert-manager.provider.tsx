@@ -1,19 +1,15 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { Alert } from "merelyui";
 import { AlertProps } from "../Alert/alert.types";
+import { AlertManagerContext } from "./alert-manager";
 
-
-interface AlertManagerContextProps {
-  handleAlert: (alert: Omit<AlertProps, "id">) => void
-}
-
-const AlertManagerContext = createContext<AlertManagerContextProps | null>(null);
-
-export const useAlertManager = () => useContext(AlertManagerContext);
-
-export const AlertManagerProvider = ({ children }: { children: React.ReactNode }) => {
-  const [alert, setAlert] = useState<AlertProps | null>(null)
+export const AlertManagerProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [alert, setAlert] = useState<AlertProps | null>(null);
 
   const handleAlert = (alert: Omit<AlertProps, "id">) => {
     const id = Date.now().toString();
@@ -24,7 +20,6 @@ export const AlertManagerProvider = ({ children }: { children: React.ReactNode }
     setAlert(null);
   };
 
-
   return (
     <AlertManagerContext.Provider value={{ handleAlert }}>
       {children}
@@ -34,5 +29,5 @@ export const AlertManagerProvider = ({ children }: { children: React.ReactNode }
           document.body
         )}
     </AlertManagerContext.Provider>
-  )
-}
+  );
+};
