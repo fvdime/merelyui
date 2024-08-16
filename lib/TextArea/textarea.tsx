@@ -1,7 +1,9 @@
-interface TextAreaProps {
+import { AdjustSizeProps } from "../utils/adjust-size";
+
+interface TextAreaBase {
   placeholder: string;
   htmlFor: string;
-  rows?: number
+  rows?: number;
   value?: string;
   name?: string;
   id?: string;
@@ -12,10 +14,7 @@ interface TextAreaProps {
   label?: string;
   required?: boolean;
   maxLength?: number;
-  secondary?: boolean;
   fullWidth?: boolean;
-  small?: boolean;
-  large?: boolean;
   nooutline?: boolean;
   transparent?: boolean;
   style?: string;
@@ -24,6 +23,8 @@ interface TextAreaProps {
   bll?: string;
   brl?: string;
 }
+
+type TextAreaProps = AdjustSizeProps<TextAreaBase>;
 
 export const TextArea = ({
   placeholder,
@@ -39,7 +40,6 @@ export const TextArea = ({
   required,
   maxLength,
   htmlFor,
-  secondary,
   fullWidth,
   large,
   nooutline,
@@ -51,30 +51,45 @@ export const TextArea = ({
   brl,
   transparent,
 }: TextAreaProps) => {
+  const renderLabel = (text: string | undefined) => text && <span>{text}</span>;
+
+  const justifyContentClasses = (start?: string, end?: string) =>
+    start && end ? "justify-between" : start ? "justify-start" : "justify-end";
+
+  const textareaClasses = [
+    "py-2 px-4 focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400 rounded-sm",
+    style,
+    fullWidth ? "w-full" : "w-fit",
+    large
+      ? "px-4 py-5 text-lg placeholder:text-lg"
+      : small
+      ? "text-xs py-[0.3rem] px-4 placeholder:text-xs"
+      : "py-2.5 px-4 text-sm placeholder:text-sm",
+    transparent ? "bg-transparent" : "bg-zinc-50",
+    nooutline ? "border-none bg-zinc-200" : "border border-zinc-300",
+    disabled &&
+      "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed",
+  ].join(" ");
+
   return (
     <div className="w-full">
       <label
         htmlFor={htmlFor}
-        className={`block mb-1 text-sm ${!label && "sr-only"}`}
+        className={`block text-sm ${!label && "sr-only"}`}
       >
         {label ? label : ""}
       </label>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-zinc-700 ${
-          tll ? "justify-start" : "justify-end"
-        } ${tll && trl && "justify-between"}`}
+        className={`w-full flex items-center mb-2 text-sm text-zinc-700 ${justifyContentClasses(
+          tll,
+          trl
+        )}`}
       >
-        {tll && trl ? (
-          <>
-            <span>{tll}</span>
-            <span>{trl}</span>
-          </>
-        ) : (
-          <>{tll || (trl && <span>{tll || trl}</span>)}</>
-        )}
+        {renderLabel(tll)}
+        {renderLabel(trl)}
       </div>
       <textarea
-        rows={rows ? rows : (large ? 5 : (small ? 1 : 3))}
+        rows={rows ? rows : large ? 5 : small ? 1 : 3}
         disabled={disabled}
         value={value}
         placeholder={placeholder}
@@ -85,31 +100,16 @@ export const TextArea = ({
         defaultValue={defaultValue}
         onChange={onChange}
         onBlur={onBlur}
-        className={`py-2 px-4 focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400 rounded-sm ${style}
-			${fullWidth ? "w-full" : "w-fit"}
-      ${large ? "px-4 py-5 text-lg placeholder:text-lg" : `${small ? "text-xs py-[0.3rem] px-4 placeholder:text-xs" : "py-2.5 px-4 text-sm placeholder:text-sm"}`}
-      ${transparent ? "bg-transparent" : "bg-zinc-50"}
-			${nooutline ? "border-none bg-zinc-200" : "border border-zinc-300"}
-			${
-        disabled
-          && "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed"
-      }
-			${secondary ? "" : ""}
-		`}
+        className={textareaClasses}
       />
       <div
-        className={`w-full flex items-center mb-2 text-sm text-zinc-700 ${
-          bll ? "justify-start" : "justify-end"
-        } ${bll && brl && "justify-between"}`}
+        className={`w-full flex items-center mb-2 text-sm text-zinc-700 ${justifyContentClasses(
+          bll,
+          brl
+        )}`}
       >
-        {bll && brl ? (
-          <>
-            <span>{bll}</span>
-            <span>{brl}</span>
-          </>
-        ) : (
-          <>{bll || (brl && <span>{bll || brl}</span>)}</>
-        )}
+        {renderLabel(bll)}
+        {renderLabel(brl)}
       </div>
     </div>
   );
