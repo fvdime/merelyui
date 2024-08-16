@@ -27,6 +27,7 @@ export const IconTextArea = ({
   fullWidth,
   large,
   nooutline,
+  underline,
   style,
   small,
   tll,
@@ -51,7 +52,11 @@ export const IconTextArea = ({
       : small
         ? "text-xs py-[0.3rem] px-4 placeholder:text-xs ps-10"
         : "py-2.5 px-4 text-sm placeholder:text-sm ps-10",
-    transparent ? "bg-transparent" : "bg-zinc-50",
+    nooutline
+      ? "border-none bg-zinc-200"
+      : underline
+        ? "border-b bg-transparent"
+        : "border border-zinc-300",
     nooutline ? "border-none bg-zinc-200" : "border border-zinc-300",
     disabled &&
       "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed",

@@ -13,6 +13,7 @@ export interface BaseInputProps {
   maxLength?: number;
   fullWidth?: boolean;
   nooutline?: boolean;
+  underline?: boolean;
   transparent?: boolean;
   style?: string;
   tll?: string;

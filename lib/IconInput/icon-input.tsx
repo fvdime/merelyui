@@ -29,6 +29,7 @@ export const IconInput = ({
   fullWidth,
   large,
   nooutline,
+  underline,
   style,
   small,
   rounded,
@@ -50,14 +51,18 @@ export const IconInput = ({
     "focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400",
     style,
     fullWidth ? "w-full" : "w-fit",
-    rounded ? "rounded-full" : "rounded-md",
+    rounded ? "rounded-full" : underline ? "rounded-none" : "rounded-md",
     large
       ? "px-4 py-5 text-lg placeholder:text-lg ps-12"
       : small
         ? "text-xs py-[0.3rem] px-4 placeholder:text-xs ps-10"
         : "py-2.5 px-4 text-sm placeholder:text-sm ps-10",
     transparent ? "bg-transparent" : "bg-zinc-50",
-    nooutline ? "border-none bg-zinc-200" : "border border-zinc-300",
+    nooutline
+      ? "border-none bg-zinc-200"
+      : underline
+        ? "border-b bg-transparent"
+        : "border border-zinc-300",
     disabled &&
       "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed",
   ].join(" ");
