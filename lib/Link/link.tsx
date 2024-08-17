@@ -1,3 +1,5 @@
+import { AdjustSizeProps } from "../utils/adjust-size";
+
 interface BaseLinkProps {
   label: string;
   href: string;
@@ -23,7 +25,9 @@ interface DefaultLinkProps extends BaseLinkProps {
   position?: never;
 }
 
-type LinkProps = SecondaryLinkProps | TertiaryLinkProps | DefaultLinkProps;
+type Link = SecondaryLinkProps | TertiaryLinkProps | DefaultLinkProps;
+
+type LinkProps = AdjustSizeProps<Link>
 
 export const Link = ({
   id,
@@ -33,13 +37,17 @@ export const Link = ({
   secondary,
   tertiary,
   position,
+  small,
+  large
 }: LinkProps) => {
   const renderStandardLink = () => (
     <a
       id={id}
       href={href}
       target={target}
-      className={`w-fit inline-flex items-center justify-center gap-1 text-base group ${
+      className={`w-fit inline-flex items-center justify-center gap-1 group text-inherit
+      ${ small ? "text-sm" : large ? "text-lg" : "text-base" }
+      ${
         !secondary &&
         "border-b-0 bg-no-repeat bg-gradient-to-b from-transparent to-transparent hover:bg-gradient-to-b hover:from-transparent hover:to-current hover:bg-[length:100%_2px] bg-[length:0_2px] bg-bottom transition-[background-size] duration-500 ease-in-out"
       }`}
@@ -51,7 +59,9 @@ export const Link = ({
       </span>
       {secondary && (
         <svg
-          className={`w-3.5 h-3.5 duration-300 ease-in-out transition-transform shrink-0 ${
+          className={`duration-300 ease-in-out transition-transform shrink-0 
+          ${ small ? "w-3 h-3" : large ? "w-4 h-4" : "w-3.5 h-3.5" }
+          ${
             position === "left"
               ? "order-1 group-hover:-translate-x-1 rotate-180"
               : "order-2 group-hover:translate-x-1"
@@ -70,7 +80,10 @@ export const Link = ({
   const renderTertiaryLink = () => (
     <div
       id={id}
-      className="relative inline-block h-8 w-24 overflow-hidden group"
+      className={`
+        relative inline-block overflow-hidden group
+        ${ small ? "h-6 w-20 text-sm" : large ? "h-12 w-32 text-lg" : "h-8 w-24 text-base" }
+      `}
     >
       <a
         href={href}
