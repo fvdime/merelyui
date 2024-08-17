@@ -31,7 +31,7 @@ export const HeroBanner = ({ data }: { data: HeroBannerItem }) => {
 
   return (
     <div
-      className={`w-full bg-black
+      className={`w-full bg-inherit text-inherit
         ${full ? "h-screen" : "h-full py-16"}
         ${data.secondary && "relative overflow-hidden flex items-center justify-center"}
       `}
@@ -47,7 +47,7 @@ export const HeroBanner = ({ data }: { data: HeroBannerItem }) => {
       <section
         id={data.id}
         className={`max-w-screen-lg mx-auto w-full flex flex-col items-center justify-center gap-4 p-4 md:p-0 tracking-tight leading-none
-          ${data.tertiary ? "md:flex-row items-center justify-center gap-4 text-center h-full" : data.secondary ? "h-[75vh] bg-black/50 backdrop-blur-sm rounded-md" : "h-full"}
+          ${data.tertiary ? "md:flex-row items-center justify-center gap-4 text-center h-full" : data.secondary ? "h-[75vh] bg-black/50 dark:bg-white/50 backdrop-blur-sm rounded-md" : "h-full"}
         `}
       >
         {data.tertiary ? (
@@ -60,14 +60,14 @@ export const HeroBanner = ({ data }: { data: HeroBannerItem }) => {
             <div
               className={`w-full h-80 flex flex-col gap-4 items-center justify-between  ${data.position === "right" ? "order-2 md:order-1" : "order-1 md:order-2"}`}
             >
-              <h1 className="text-2xl font-bold tracking-tight leading-none text-white md:text-3xl lg:text-4xl">
+              <h1 className="text-2xl font-bold tracking-tight leading-none md:text-3xl lg:text-4xl">
                 {data.title}
               </h1>
               <div>
-                <h4 className="text-sm text-slate-200 font-medium">
+                <h4 className="text-sm font-medium">
                   {data.subtitle}
                 </h4>
-                <p className="text-xs text-gray-300 font-normal">
+                <p className="text-xs font-normal">
                   {data.content}
                 </p>
                 <div className="flex flex-row justify-center items-center mt-4">

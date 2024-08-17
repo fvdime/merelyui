@@ -25,7 +25,7 @@ export const Drawer = ({ children, position, label }: DrawerProps) => {
 
       {/* Drawer Overlay */}
       <div
-        className={`fixed top-0 left-0 w-full h-full bg-black/40 backdrop-blur-sm duration-300 z-50 ${
+        className={`fixed top-0 left-0 w-full h-full bg-black/40 dark:bg-white/40 backdrop-blur-sm duration-300 z-50 ${
           isOpen
             ? "opacity-100 visible pointer-events-auto"
             : "opacity-0 invisible pointer-events-none"
@@ -36,7 +36,7 @@ export const Drawer = ({ children, position, label }: DrawerProps) => {
       {/* Drawer Content */}
       <aside
         className={`
-          bg-white fixed z-50 text-black duration-500 transition-transform transform
+          bg-inherit fixed z-50 text-inherit duration-500 transition-transform transform
           ${
             position === "top" && "h-[40vh] md:h-[60vh] min-w-full top-0 left-0"
           }
@@ -65,11 +65,11 @@ export const Drawer = ({ children, position, label }: DrawerProps) => {
         `}
       >
         {/* Drawer Header */}
-        <div className="flex justify-between items-center p-4 border-b border-black/10">
+        <div className="flex justify-between items-center p-4">
           <span className="text-lg font-semibold">{label}</span>
           <button
             onClick={toggleDrawer}
-            className="p-2 text-black hover:text-black/50 transition duration-300"
+            className="p-2 scale-100 text-inherit hover:scale-110 transition-transform ease-in-out duration-300"
           >
             <svg
               className="w-5 h-5"

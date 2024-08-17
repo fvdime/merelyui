@@ -36,11 +36,11 @@ export const Avatar = ({
   const sizeClasses = large ? "w-16 h-16" : small ? "w-8 h-8" : "w-12 h-12";
   const textSizeClasses = large ? "text-xl" : small ? "text-xs" : "text-base";
   const baseClasses = `
+      text-inherit object-cover object-center hover:brightness-75 duration-300 transition-all ease-in
       ${rounded ? "rounded-full" : "rounded-lg"}
       ${sizeClasses}
       ${disabled ? "grayscale cursor-not-allowed" : "cursor-pointer"}
       ${ring && "ring"}
-      object-cover object-center hover:brightness-75 duration-300 transition-all ease-in
     `;
 
   const badgePositionClasses = `
@@ -56,9 +56,9 @@ export const Avatar = ({
     <div className="w-fit h-fit relative">
       {initials ? (
         <div
-          className={`bg-gray-500 flex items-center justify-center uppercase ${baseClasses}`}
+          className={`bg-inherit flex items-center justify-center uppercase ${baseClasses}`}
         >
-          <span className={`font-medium text-white ${textSizeClasses}`}>
+          <span className={`font-medium text-inherit ${textSizeClasses}`}>
             {initials}
           </span>
         </div>
@@ -68,13 +68,13 @@ export const Avatar = ({
 
       {(tli || tri || bli || bri) && (
         <span
-          className={`absolute ${badgePositionClasses} ${badgeSizeClasses} bg-green-600 rounded-full outline outline-2 outline-white`}
+          className={`absolute ${badgePositionClasses} ${badgeSizeClasses} bg-green-600 rounded-full outline outline-2 outline-inherit`}
         />
       )}
 
       {label && (tli || tri || bli || bri) && (
         <span
-          className={`absolute ${badgePositionClasses} bg-green-600 text-white py-0 rounded-full outline outline-2 outline-white text-xs ${
+          className={`absolute ${badgePositionClasses} bg-green-600 text-inherit py-0 rounded-full outline outline-2 outline-inherit text-xs ${
             large
               ? "px-1.5 font-medium"
               : small

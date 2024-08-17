@@ -16,11 +16,11 @@ export const Tabs = ({ id, data, secondary }: TabProps) => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   const activeClasses = secondary
-    ? "bg-black text-black text-white hover:text-gray-100 border-black"
-    : "border-b-2 text-black hover:text-gray-600 border-black";
+    ? "bg-black text-black dark:text-white hover:text-gray-200 border-black dark:border-white"
+    : "border-b-2 text-black dark:text-white hover:text-gray-500 border-black dark:border-white";
 
   const inActiveClasses = secondary
-    ? "text-gray-500 hover:text-gray-600 hover:bg-gray-200"
+    ? "text-gray-500 hover:text-gray-600"
     : "text-gray-500 hover:text-gray-600 hover:border-b-2 hover:border-gray-300";
 
   return (

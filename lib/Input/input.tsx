@@ -50,12 +50,12 @@ export const Input = ({
       : small
         ? "text-xs py-[0.3rem] px-4 placeholder:text-xs"
         : "py-2.5 px-4 text-sm placeholder:text-sm",
-    transparent ? "bg-transparent" : "bg-zinc-50",
+    transparent ? "bg-transparent" : "bg-inherit",
     nooutline
-      ? "border-none bg-zinc-200"
+      ? "border-none bg-inherit"
       : underline
         ? "border-b bg-transparent"
-        : "border border-zinc-300",
+        : "border border-inherit",
     disabled &&
       "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed",
   ].join(" ");
@@ -69,7 +69,7 @@ export const Input = ({
         {label}
       </label>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-zinc-700 ${justifyContentClasses(tll, trl)}`}
+        className={`w-full flex items-center mb-2 text-sm text-inherit ${justifyContentClasses(tll, trl)}`}
       >
         {renderLabel(tll)}
         {renderLabel(trl)}
@@ -89,7 +89,7 @@ export const Input = ({
         className={inputClasses}
       />
       <div
-        className={`w-full flex items-center mb-2 text-sm text-zinc-700 ${justifyContentClasses(bll, brl)}`}
+        className={`w-full flex items-center mb-2 text-sm text-inherit ${justifyContentClasses(bll, brl)}`}
       >
         {renderLabel(bll)}
         {renderLabel(brl)}

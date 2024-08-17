@@ -50,7 +50,7 @@ export const IconButton = ({
   transparent,
 }: IconButtonProps) => {
   const baseClasses =
-    "flex flex-row items-center justify-center gap-2 text-black focus:ring focus:ring-zinc-200 focus:outline-none transition-all ease-in duration-300";
+    "flex flex-row items-center justify-center gap-2 text-black focus:ring focus:ring-inherit focus:outline-none transition-all ease-in duration-300";
   const widthClasses = fullWidth ? "w-full" : "w-fit";
   const roundedClasses = rounded ? "rounded-full" : "rounded-lg";
   const sizeClasses = large
@@ -59,15 +59,15 @@ export const IconButton = ({
       ? "p-1.5 text-xs"
       : "p-3 text-sm";
   const outlineClasses = outline
-    ? "bg-transparent hover:bg-zinc-50 border"
+    ? "bg-transparent hover:bg-inherit border"
     : transparent
       ? "bg-transparent border-none"
-      : "bg-zinc-100 border";
+      : "bg-inherit border border-inherit";
   const disabledClasses = disabled
     ? "disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed"
     : transparent
-      ? "hover:text-zinc-700"
-      : "hover:bg-zinc-200";
+      ? "hover:text-inherit"
+      : "hover:bg-inherit";
   const iconClasses = `${small ? "w-3.5 h-3.5" : "w-5 h-5"} ${
     large && "w-6 h-6"
   }`;

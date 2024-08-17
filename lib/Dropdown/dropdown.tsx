@@ -1,5 +1,6 @@
 import React, { useImperativeHandle, useState, useRef, useEffect } from "react";
 import { DropdownHandle, DropdownProps } from "./dropdown.types";
+import { Button } from "merelyui";
 
 export const Dropdown = React.forwardRef<DropdownHandle, DropdownProps>(
   ({ id, header, body, footer, button, label }, ref) => {
@@ -37,12 +38,11 @@ export const Dropdown = React.forwardRef<DropdownHandle, DropdownProps>(
         {/* Render the external button if provided */}
         {button ? button : null}
         {label && (
-          <button
-            className="px-4 py-2 bg-red-500 text-white rounded mt-4"
+          <Button
             onClick={() => setIsOpen((prev) => !prev)}
           >
             {label}
-          </button>
+          </Button>
         )}
 
         {isOpen && (
@@ -51,7 +51,7 @@ export const Dropdown = React.forwardRef<DropdownHandle, DropdownProps>(
             ref={dropdownRef}
             className="w-fit h-fit max-w-full max-h-full absolute z-10 animate-slideIn"
           >
-            <div className="h-full lg:h-auto border-0 rounded-lg shadow-lg flex flex-col w-full bg-white outline-none focus:outline-none">
+            <div className="h-full lg:h-auto border-0 rounded-lg shadow-lg flex flex-col w-full bg-inherit text-inherit outline-none focus:outline-none">
               <div className="flex items-center justify-between p-8 rounded-t">
                 {header}
               </div>

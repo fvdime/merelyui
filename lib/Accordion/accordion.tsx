@@ -18,9 +18,9 @@ export const Accordion = ({ data }: AccordionProps) => {
   };
 
   return (
-    <div className="h-full w-full flex flex-col items-center justify-center">
+    <div className="h-full w-full flex flex-col items-center justify-center text-inherit">
       {data.map((item, index) => (
-        <div className="py-2 border-b" key={index}>
+        <div className="py-2 border-b border-inherit" key={index}>
           <button
             className="flex items-center justify-between w-full text-left font-semibold px-2 py-1"
             onClick={() => toggleAccordion(index)}
