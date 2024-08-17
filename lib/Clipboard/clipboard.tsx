@@ -49,13 +49,13 @@ export const Clipboard = ({
   };
 
   return (
-    <section className="w-full h-full border rounded-md">
+    <section className="w-full h-full border rounded-md bg-inherit text-inherit border-inherit">
       <div
-        className={`w-full h-full flex flex-row items-center justify-between py-2 px-4  ${
+        className={`w-full h-full flex flex-row items-center justify-between py-2 px-4 border-inherit ${
           terminal || title ? "border-b" : "border-0"
         }`}
       >
-        <div className="flex flex-row items-center justify-start gap-1 text-gray-700">
+        <div className="flex flex-row items-center justify-start gap-1">
           {terminal && (
             <>
               <svg

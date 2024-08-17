@@ -55,7 +55,7 @@ export const CardCarousel = ({ id, data }: CardCarouselProps) => {
           type="button"
           onClick={handleNext}
           disabled={currentIndex === data.length - 1}
-          className={`text-black
+          className={`text-black dark:text-white
     ${
       currentIndex === data.length - 1
         ? "opacity-20 cursor-default"

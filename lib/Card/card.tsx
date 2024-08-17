@@ -59,7 +59,7 @@ export const Card = ({
       id={id}
       href={href}
       className={`
-        w-full h-full flex flex-col justify-center items-start gap-4 rounded-xl bg-white border shadow  transition-all ease-in duration-300 group
+        w-full h-full flex flex-col justify-center items-start gap-4 rounded-xl bg-inherit border border-inherit shadow transition-all ease-in duration-300 group
         ${tertiary && "relative"}
         ${!href ? "cursor-default" : "cursor-pointer hover:shadow-md"}
         `}
@@ -80,7 +80,7 @@ export const Card = ({
             />
             <div className="w-full">
               <div className="flex justify-between items-center">
-                <h1 className="text-lg font-semibold">{title}</h1>
+                <h1 className="text-lg font-semibold text-black dark:text-white">{title}</h1>
                 {ranking && 
                   <div className="flex items-center">
                     <svg
@@ -95,8 +95,8 @@ export const Card = ({
                   </div>
                 }
               </div>
-              <p className="text-sm text-gray-500 mb-1">{subtitle}</p>
-              <p className="text-sm text-gray-800 font-semibold">
+              <p className="text-sm text-gray-500 dark:text-gray-300 mb-1">{subtitle}</p>
+              <p className="text-sm text-gray-800 dark:text-gray-100 font-semibold">
                 {description}
               </p>
             </div>
@@ -117,14 +117,14 @@ export const Card = ({
         ) : (
           <>
             <h1 className="text-2xl font-medium mb-1">{title}</h1>
-            <p className="text-sm text-gray-500">{subtitle}</p>
+            <p className="text-sm text-gray-500 dark:text-gray-300">{subtitle}</p>
             <img
               src={src}
               alt="card image"
               className="h-56 w-full object-cover rounded-lg my-4"
             />
             <div className="w-full flex justify-between items-center">
-              <p className="text-sm text-gray-600 font-semibold">
+              <p className="text-sm text-gray-600 dark:text-gray-500 font-semibold">
                 {description}
               </p>
               <button

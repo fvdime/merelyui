@@ -48,7 +48,7 @@ export const IconInput = ({
     start && end ? "justify-between" : start ? "justify-start" : "justify-end";
 
   const inputClasses = [
-    "focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400",
+    "focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400 text-inherit",
     style,
     fullWidth ? "w-full" : "w-fit",
     rounded ? "rounded-full" : underline ? "rounded-none" : "rounded-md",
@@ -57,12 +57,12 @@ export const IconInput = ({
       : small
         ? "text-xs py-[0.3rem] px-4 placeholder:text-xs ps-10"
         : "py-2.5 px-4 text-sm placeholder:text-sm ps-10",
-    transparent ? "bg-transparent" : "bg-zinc-50",
+    transparent ? "bg-transparent" : "bg-inherit",
     nooutline
       ? "border-none bg-zinc-200"
       : underline
         ? "border-b bg-transparent"
-        : "border border-zinc-300",
+        : "border border-inherit",
     disabled &&
       "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed",
   ].join(" ");
@@ -76,7 +76,7 @@ export const IconInput = ({
         {label ? label : ""}
       </label>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-zinc-700 ${justifyContentClasses(
+        className={`w-full flex items-center mb-2 text-sm text-inherit ${justifyContentClasses(
           tll,
           trl
         )}`}
@@ -139,7 +139,7 @@ export const IconInput = ({
         />
       </div>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-zinc-700 ${justifyContentClasses(
+        className={`w-full flex items-center mb-2 text-sm text-inherit ${justifyContentClasses(
           bll,
           brl
         )}`}

@@ -13,7 +13,7 @@ export const Button = ({
   rounded,
 }: ButtonProps) => {
   const baseClasses =
-    "font-medium text-center text-zinc-950 border border-zinc-300 focus:ring focus:ring-zinc-200 focus:outline-none transition-all ease-in duration-300";
+    "font-medium text-center text-inherit border border-inherit focus:ring focus:ring-inherit focus:outline-none transition-all ease-in duration-300";
 
   const widthClasses = fullWidth ? "w-full" : "w-fit";
   const roundedClasses = rounded ? "rounded-full" : "rounded-md";
@@ -23,8 +23,8 @@ export const Button = ({
     ? "text-xs py-1.5 px-3"
     : "py-2.5 px-6 text-sm";
   const outlineClasses = outline
-    ? "bg-transparent hover:bg-zinc-50"
-    : "bg-zinc-100";
+    ? "bg-transparent hover:bg-inherit"
+    : "bg-inherit";
   const disabledClasses = disabled
     ? "disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed"
     : "hover:text-zinc-700 hover:bg-zinc-200";

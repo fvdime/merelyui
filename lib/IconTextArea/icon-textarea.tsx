@@ -56,8 +56,8 @@ export const IconTextArea = ({
       ? "border-none bg-zinc-200"
       : underline
         ? "border-b bg-transparent"
-        : "border border-zinc-300",
-    transparent ? "bg-transparent" : "bg-zinc-50",
+        : "border border-inherit",
+    transparent ? "bg-transparent" : "bg-inherit",
     disabled &&
       "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed",
   ].join(" ");
@@ -71,7 +71,7 @@ export const IconTextArea = ({
         {label}
       </label>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-zinc-700 ${justifyContentClasses(
+        className={`w-full flex items-center mb-2 text-sm text-inherit ${justifyContentClasses(
           tll,
           trl
         )}`}
@@ -125,7 +125,7 @@ export const IconTextArea = ({
         />
       </div>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-zinc-700 ${justifyContentClasses(
+        className={`w-full flex items-center mb-2 text-sm text-inherit ${justifyContentClasses(
           bll,
           brl
         )}`}

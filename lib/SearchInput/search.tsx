@@ -65,7 +65,7 @@ export const Search = ({
         </label>
       )}
       <div
-        className={`w-full flex items-center mb-2 text-sm text-zinc-700 ${
+        className={`w-full flex items-center mb-2 text-sm text-inherit ${
           tll ? "justify-start" : "justify-end"
         } ${tll && trl && "justify-between"}`}
       >
@@ -131,16 +131,15 @@ export const Search = ({
                  nooutline && transparent
                    ? "bg-transparent border-none"
                    : transparent
-                     ? "bg-transparent border border-zinc-300"
+                     ? "bg-transparent border border-inherit"
                      : nooutline
-                       ? "bg-zinc-200 border-none"
-                       : "bg-zinc-50 border border-zinc-300"
+                       ? "bg-inherit border-none"
+                       : "bg-inherit border border-inherit"
                }
               ${
                 disabled
-                  ? "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed"
-                  : ""
-              }
+                  && "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed"
+                }
             `}
         />
         {!small && !large && kbd && (
@@ -155,7 +154,7 @@ export const Search = ({
         )}
       </div>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-zinc-700 ${
+        className={`w-full flex items-center mb-2 text-sm text-inherit ${
           bll ? "justify-start" : "justify-end"
         } ${bll && brl && "justify-between"}`}
       >
