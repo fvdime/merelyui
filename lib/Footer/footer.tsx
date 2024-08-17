@@ -1,4 +1,4 @@
-import { SocialLink } from "merelyui";
+import { Link, SocialLink } from "merelyui";
 import { FooterProps, FooterSocial } from "./footer.types";
 
 export const Footer= ({
@@ -67,12 +67,8 @@ export const Footer= ({
                 data.links.map((link) => (
                   <div key={link.id}>
                     {secondary || quaternary ? (
-                      <a
-                        href={link.href}
-                        className="transition-all ease duration-500 hover:underline hover:text-gray-800"
-                      >
-                        {link.label}
-                      </a>
+                      <Link href={link.href!} label={link.label} target="_blank" small/>
+
                     ) : (
                       <h2 className="mb-4 text-sm font-semibold uppercase underline">
                         {link.label}
@@ -82,12 +78,7 @@ export const Footer= ({
                       {link.links &&
                         link.links.map((link) => (
                           <li key={link.href} className="mb-2.5">
-                            <a
-                              href={link.href}
-                              className="hover:underline hover:text-gray-500"
-                            >
-                              {link.name}
-                            </a>
+                             <Link href={link.href!} label={link.name} target="_blank"  small/>
                           </li>
                         ))}
                     </ul>
@@ -106,9 +97,8 @@ export const Footer= ({
             >
               <span className="text-zinc-500">
                 © 2024{" "}
-                <a href={data.href} className="hover:underline">
-                  {data.logo}
-                </a>
+                <Link href={data.href!} label={data.logo}small/>
+
                 . All Rights Reserved.
               </span>
               <div className="flex flex-row gap-4">
