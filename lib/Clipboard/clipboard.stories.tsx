@@ -15,6 +15,5 @@ export const Default: Story = {
     children: (
       <h5 className="font-medium"><span className="text-amber-300 me-1">npm</span>install merelyui</h5>
     ),
-    terminal: true,
   },
 };
