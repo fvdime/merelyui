@@ -13,7 +13,7 @@ export const Button = ({
   rounded,
 }: ButtonProps) => {
   const baseClasses =
-    "font-medium text-center text-inherit border border-inherit focus:ring focus:ring-inherit focus:outline-none transition-all ease-in duration-300";
+    "font-medium text-center text-inherit border border-inherit focus:ring focus:ring-inherit focus:outline-none scale-100 active:scale-95 transition-all ease-in duration-300";
 
   const widthClasses = fullWidth ? "w-full" : "w-fit";
   const roundedClasses = rounded ? "rounded-full" : "rounded-md";
