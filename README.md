@@ -1,9 +1,6 @@
-<a name="readme-top"></a>
-
 <div align="center">
   <h1 align="center">MerelyUI</h1>
   <h3 align="center">React UI component library. Open-Source, free, customizable.</h3>
-
   <p align="center">
     <a href="https://www.npmjs.com/package/merelyui">NPM</a>
     ·
@@ -21,14 +18,10 @@ Installation:
 npm install merelyui
 ```
 
-<p align="right">(<a href="#readme-top">↑</a>)</p>
 
-### GITHUB
+#####  • [Github Repository](https://github.com/fvdime/merelyui)
 
-Github: [https://github.com/fvdime/merelyui](https://github.com/fvdime/merelyui)
-
-
-<p align="right">(<a href="#readme-top">↑</a>)</p>
+##### • [Coming Soon](https://github.com/fvdime/merelyui)
 
 ### LICENSE
 
@@ -54,4 +47,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-<p align="right">(<a href="#readme-top">↑</a>)</p>
+
+<div align="center">
+• • • ♡ Please share ♡ • • • 
+</div>
