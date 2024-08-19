@@ -8,8 +8,8 @@ type BaseProps = {
 type SecondaryProps = BaseProps & {
   secondary: true;
   tertiary?: false;
-  description: string;
-  subtitle: string;
+  description?: string;
+  subtitle?: string;
   badge?: string;
   ranking?: string;
   label?: never;
