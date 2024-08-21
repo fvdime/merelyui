@@ -3,6 +3,7 @@ type BaseProps = {
   src?: string;
   id?: string;
   href?: string;
+  theme?: string
 };
 
 type SecondaryProps = BaseProps & {
@@ -30,10 +31,10 @@ type TertiaryProps = BaseProps & {
 type DefaultProps = BaseProps & {
   secondary?: false;
   tertiary?: false;
-  description: string;
+  description?: string;
   label: string;
   onClick?: () => void;
-  subtitle: string;
+  subtitle?: string;
   badge?: string;
   ranking?: string;
 };
@@ -53,15 +54,17 @@ export const Card = ({
   tertiary,
   onClick,
   href,
+  theme
 }: CardProps) => {
   return (
     <a
       id={id}
       href={href}
       className={`
-        w-full h-full flex flex-col justify-center items-start gap-4 rounded-xl bg-inherit border border-inherit shadow transition-all ease-in duration-300 group
+        w-full h-full flex flex-col justify-center items-start gap-4 rounded-xl bg-base dark:bg-base border border-base dark:border-inverted shadow transition-all ease-in duration-300 group
         ${tertiary && "relative"}
         ${!href ? "cursor-default" : "cursor-pointer hover:shadow-md"}
+        ${theme}
         `}
     >
       <div
@@ -80,7 +83,7 @@ export const Card = ({
             />
             <div className="w-full">
               <div className="flex justify-between items-center">
-                <h1 className="text-lg font-semibold text-black dark:text-white">{title}</h1>
+                <h1 className="text-lg font-semibold text-base dark:text-inverted">{title}</h1>
                 {ranking && 
                   <div className="flex items-center">
                     <svg
@@ -95,8 +98,8 @@ export const Card = ({
                   </div>
                 }
               </div>
-              <p className="text-sm text-gray-500 dark:text-gray-300 mb-1">{subtitle}</p>
-              <p className="text-sm text-gray-800 dark:text-gray-100 font-semibold">
+              <p className="text-sm text-soft mb-1">{subtitle}</p>
+              <p className="text-sm text-muted font-semibold">
                 {description}
               </p>
             </div>
@@ -111,26 +114,26 @@ export const Card = ({
               />
             </div>
             <div className="absolute bottom-0 p-4 transition group-hover:translate-x-3">
-              <h1 className="text-xl font-medium text-gray-100">{title}</h1>
+              <h1 className="text-xl font-medium text-base dark:text-inverted">{title}</h1>
             </div>
           </>
         ) : (
           <>
-            <h1 className="text-2xl font-medium mb-1">{title}</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-300">{subtitle}</p>
+            <h1 className="text-2xl font-medium mb-1 text-base dark:text-inverted">{title}</h1>
+            <p className="text-sm text-soft">{subtitle}</p>
             <img
               src={src}
               alt="card image"
               className="h-56 w-full object-cover rounded-lg my-4"
             />
             <div className="w-full flex justify-between items-center">
-              <p className="text-sm text-gray-600 dark:text-gray-500 font-semibold">
+              <p className="text-sm text-soft dark:text-muted font-semibold">
                 {description}
               </p>
               <button
                 type="button"
                 onClick={onClick}
-                className="py-1.5 px-6 text-sm font-medium text-white bg-indigo-900 rounded-full hover:bg-indigo-950 focus:ring focus:ring-indigo-200 transition"
+                className="py-1.5 px-6 text-sm font-medium text-inverted dark:text-base bg-button-accent dark:bg-button-inverted rounded-full hover:bg-button-accent-hover dark:hover:bg-button-inverted-hover dark:opacity-80 focus:ring focus:ring-base dark:focus:ring-muted transition"
               >
                 {label}
               </button>

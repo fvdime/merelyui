@@ -10,7 +10,7 @@ const Button: React.FC<{
   <button
     type="button"
     onClick={onClick}
-    className="py-1.5 px-6 text-sm font-medium text-zinc-950 bg-indigo-500 rounded-md border border-indigo-500 hover:bg-indigo-600 hover:text-zinc-700 focus:ring focus:ring-indigo-200 focus:outline-none transition-all ease-in duration-300 self-end"
+    className="py-1.5 px-6 text-sm font-medium bg-button-inverted text-base dark:bg-muted dark:text-inverted rounded-md border hover:bg-button-inverted-hover dark:hover:bg-button-accent-hover focus:ring focus:ring-base focus:outline-none transition-all ease-in duration-300 self-end"
   >
     {label}
   </button>
@@ -26,7 +26,7 @@ const Icon: React.FC<{
         return (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-gray-900 hover:text-gray-950 hover:cursor-pointer"
+            className="h-6 w-6 text-base hover:opacity-80 hover:cursor-pointer"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -43,7 +43,7 @@ const Icon: React.FC<{
         return (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 text-gray-900 hover:text-gray-950 hover:cursor-pointer"
+            className="h-6 w-6 text-base hover:opacity-80  hover:cursor-pointer"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -71,7 +71,7 @@ const Icon: React.FC<{
     <a href={icon.href || "#"} className="relative">
       {renderIcon()}
       {icon.indicator && (
-        <span className="absolute -top-1.5 -right-1.5 px-1 bg-purple-500 rounded-full text-xs font-bold text-white outline outline-white">
+        <span className="absolute -top-1.5 -right-1.5 px-1 bg-purple-500 rounded-full text-xs font-bold text-inverted outline outline-base dark:outline-inverted">
           {icon.indicator}
         </span>
       )}
@@ -81,7 +81,7 @@ const Icon: React.FC<{
 
 // Reusable Link Component
 const Link = ({ label, href, classname }: NavbarLink) => (
-  <a href={href} className={`hover:text-purple-700 ${classname}`}>
+  <a href={href} className={`hover:text-muted ${classname}`}>
     {label}
   </a>
 );
@@ -91,7 +91,8 @@ export const Navbar = ({
   secondary,
   tertiary,
   sticky,
-  modalRef
+  modalRef,
+  theme,
 }: NavbarProps) => {
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
 
@@ -102,7 +103,7 @@ export const Navbar = ({
   const headerClasses = `
     w-full h-fit ${
       tertiary
-        ? `max-w-screen-xl mx-auto fixed z-50 top-2 left-0 right-0 bg-white/30 backdrop-blur px-4 md:px-8 py-2.5 shadow-md rounded-lg ${
+        ? `max-w-screen-xl mx-auto fixed z-50 top-2 left-0 right-0 bg-white/30 dark:bg-black/70 backdrop-blur px-4 md:px-8 py-2.5 shadow-md rounded-lg ${
             isNavOpen ? "h-1/2 md:h-fit" : "h-fit"
           }`
         : sticky
@@ -111,6 +112,7 @@ export const Navbar = ({
         `
           : "p-4 md:py-4 relative"
     }
+      ${theme}
   `;
 
   return (
@@ -151,21 +153,21 @@ export const Navbar = ({
                 <button
                   type="button"
                   onClick={toggleNav}
-                  className="flex group h-fit w-fit border-black"
+                  className="flex group h-fit w-fit border-inverted dark:border-base"
                 >
                   <div className="grid justify-items-center gap-1">
                     <span
-                      className={`h-0.5 w-5 rounded-full bg-gray-500 transition ${
+                      className={`h-0.5 w-5 rounded-full bg-muted dark:bg-base transition ${
                         isNavOpen && "rotate-45 translate-y-1.5"
                       }`}
                     />
                     <span
-                      className={`h-0.5 w-5 rounded-full bg-gray-500 transition ${
+                      className={`h-0.5 w-5 rounded-full bg-muted dark:bg-base transition ${
                         isNavOpen && "scale-x-0"
                       }`}
                     />
                     <span
-                      className={`h-0.5 w-5 rounded-full bg-gray-500 transition ${
+                      className={`h-0.5 w-5 rounded-full bg-muted dark:bg-base transition ${
                         isNavOpen && "-rotate-45 -translate-y-1.5"
                       }`}
                     />
@@ -196,21 +198,21 @@ export const Navbar = ({
                 <button
                   type="button"
                   onClick={toggleNav}
-                  className="flex md:hidden group h-fit w-fit border-black"
+                  className="flex md:hidden group h-fit w-fit border-inverted dark:border-base"
                 >
                   <div className="grid justify-items-center gap-1">
                     <span
-                      className={`h-0.5 w-5 rounded-full bg-gray-500 transition ${
+                      className={`h-0.5 w-5 rounded-full bg-muted dark:bg-base transition ${
                         isNavOpen && "rotate-45 translate-y-1.5"
                       }`}
                     />
                     <span
-                      className={`h-0.5 w-5 rounded-full bg-gray-500 transition ${
+                      className={`h-0.5 w-5 rounded-full bg-muted dark:bg-base transition ${
                         isNavOpen && "scale-x-0"
                       }`}
                     />
                     <span
-                      className={`h-0.5 w-5 rounded-full bg-gray-500 transition ${
+                      className={`h-0.5 w-5 rounded-full bg-muted dark:bg-base transition ${
                         isNavOpen && "-rotate-45 -translate-y-1.5"
                       }`}
                     />
@@ -222,7 +224,7 @@ export const Navbar = ({
           {secondary
             ? isNavOpen && (
                 <nav
-                  className={`w-full absolute top-16 md:top-16 left-0 bg-white h-80 z-10 duration-500 transition-transform transform shadow-md ${
+                  className={`w-full absolute top-16 md:top-16 left-0 bg-base dark:bg-base h-80 z-10 duration-500 transition-transform transform shadow-md ${
                     isNavOpen ? "translate-y-0" : "-translate-y-full"
                   }`}
                 >
@@ -230,8 +232,8 @@ export const Navbar = ({
                     {item.links?.map((link, i) => (
                       <Link key={i} label={link.label} href={link.href} />
                     ))}
-                    <div className="w-full border-t border-gray-400 py-2 flex flex-row justify-between items-center">
-                      <p className="text-gray-500 text-sm font-normal">
+                    <div className="w-full border-t border-muted dark:border-inverted py-2 flex flex-row justify-between items-center">
+                      <p className="text-muted dark:text-soft text-sm font-normal">
                         © 2024{" "}
                         <a
                           href="#"
@@ -261,7 +263,7 @@ export const Navbar = ({
                     ${
                       tertiary
                         ? "bg-transparent mt-4"
-                        : "bg-white shadow-md absolute"
+                        : "bg-base dark:bg-base shadow-md absolute"
                     }
                   `}
                 >

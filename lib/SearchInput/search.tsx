@@ -24,6 +24,7 @@ interface SearchInputBase {
   bll?: string;
   brl?: string;
   kbd?: string;
+  theme?: string;
 }
 
 type SearchInputProps = AdjustSizeProps<SearchInputBase>;
@@ -53,9 +54,10 @@ export const Search = ({
   bll,
   brl,
   kbd,
+  theme
 }: SearchInputProps) => {
   return (
-    <form className="w-full">
+    <form className={`w-full ${theme}`}>
       {label && (
         <label
           htmlFor={htmlFor}
@@ -65,7 +67,7 @@ export const Search = ({
         </label>
       )}
       <div
-        className={`w-full flex items-center mb-2 text-sm text-inherit ${
+        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${
           tll ? "justify-start" : "justify-end"
         } ${tll && trl && "justify-between"}`}
       >
@@ -84,11 +86,11 @@ export const Search = ({
             ${iconPosition === "right" ? "right-0 pe-4" : "ps-4 left-0"}
             ${
               disabled &&
-              "disabled:bg-transparent disabled:text-zinc-400 disabled:border-none disabled:shadow-none disabled:cursor-not-allowed"
+              "disabled:bg-transparent disabled:border-none disabled:text-muted disabled:shadow-none disabled:cursor-not-allowed"
             }`}
         >
           <svg
-            className={`text-gray-400 ${
+            className={`text-muted dark:text-soft ${
               small ? "w-3 h-3" : large ? "w-6 h-6" : "w-4 h-4"
             }`}
             aria-hidden="true"
@@ -117,7 +119,7 @@ export const Search = ({
           required={required}
           maxLength={maxLength}
           defaultValue={defaultValue}
-          className={`focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400 w-full
+          className={`focus:outline-none focus:ring-0 focus:border-info placeholder:text-muted dark:placeholder:text-soft w-full
               ${iconPosition === "left" ? "ps-10" : "ps-4"}
               ${rounded ? "rounded-full" : "rounded-md"}
               ${
@@ -131,15 +133,15 @@ export const Search = ({
                  nooutline && transparent
                    ? "bg-transparent border-none"
                    : transparent
-                     ? "bg-transparent border border-inherit"
+                     ? "bg-transparent border border-base dark:border-inverted"
                      : nooutline
-                       ? "bg-inherit border-none"
-                       : "bg-inherit border border-inherit"
+                       ? "bg-base dark:bg-base border-none"
+                       : "bg-base dark:bg-base border border-base dark:border-inverted"
                }
               ${
-                disabled
-                  && "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed"
-                }
+                disabled &&
+                "disabled:text-muted disabled:border-muted disabled:shadow-none disable:border-muted disabled:cursor-not-allowed"
+              }
             `}
         />
         {!small && !large && kbd && (
@@ -154,7 +156,7 @@ export const Search = ({
         )}
       </div>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-inherit ${
+        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${
           bll ? "justify-start" : "justify-end"
         } ${bll && brl && "justify-between"}`}
       >

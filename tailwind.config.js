@@ -1,4 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+
+function withOpacity(variableName) {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`
+    }
+    return `rgb(var(${variableName}))`
+  }
+}
+
 export default {
   content: [
     // lib only
@@ -6,6 +16,45 @@ export default {
   ],
   theme: {
     extend: {
+      textColor: {
+        base: withOpacity('--color-text-base'),
+        soft: withOpacity('--color-text-soft'),
+        muted: withOpacity('--color-text-muted'),
+        inverted: withOpacity('--color-text-inverted'),
+      },
+      backgroundColor: {
+        fill: withOpacity('--color-fill'),
+        muted: withOpacity('--color-muted'),
+        inverted: withOpacity('--color-inverted'),
+        'button-accent': withOpacity('--color-button-accent'),
+        'button-accent-hover': withOpacity('--color-button-accent-hover'),
+        'button-inverted': withOpacity('--color-button-inverted'),
+        'button-inverted-hover': withOpacity('--color-button-inverted-hover'),
+        'button-destructive': withOpacity('--color-button-destructive'),
+        'button-destructive-hover': withOpacity('--color-button-destructive-hover'),
+      },
+      borderColor: {
+        base: withOpacity('--color-border-base'),
+        muted: withOpacity('--color-border-muted'),
+        inverted: withOpacity('--color-border-inverted'),
+        info: withOpacity('--color-border-info'),
+        success: withOpacity('--color-border-success'),
+        danger: withOpacity('--color-border-danger'),
+        warning: withOpacity('--color-border-warning'),
+      },
+      outlineColor: {
+        base: withOpacity('--color-outline-base'),
+        muted: withOpacity('--color-outline-muted'),
+        inverted: withOpacity('--color-outline-inverted'),
+      },
+      ringColor: {
+        base: withOpacity('--color-ring-base'),
+        muted: withOpacity('--color-ring-muted'),
+        inverted: withOpacity('--color-ring-inverted'),
+      },
+      gradientColorStops: {
+        hue: withOpacity('--color-fill'),
+      },
       keyframes: {
         slideIn: { 
           '0%': { 

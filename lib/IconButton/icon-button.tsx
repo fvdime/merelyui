@@ -15,6 +15,7 @@ interface IconButtonBase {
   style?: string;
   icon?: React.ReactElement;
   endIcon?: boolean;
+  theme?: string;
 }
 
 interface OutlineIconButton extends IconButtonBase {
@@ -30,7 +31,6 @@ interface TransparentIconButton extends IconButtonBase {
 type IconButton = OutlineIconButton | TransparentIconButton;
 
 type IconButtonProps = AdjustSizeProps<IconButton>;
-
 
 export const IconButton = ({
   fullWidth,
@@ -48,9 +48,10 @@ export const IconButton = ({
   label,
   endIcon,
   transparent,
+  theme,
 }: IconButtonProps) => {
   const baseClasses =
-    "flex flex-row items-center justify-center gap-2 text-black focus:ring focus:ring-inherit focus:outline-none transition-all ease-in duration-300";
+    "flex flex-row items-center justify-center gap-2 text-base dark:text-inverted focus:ring focus:ring-base dark:focus:ring-inverted focus:outline-none transition-all ease-in duration-300";
   const widthClasses = fullWidth ? "w-full" : "w-fit";
   const roundedClasses = rounded ? "rounded-full" : "rounded-lg";
   const sizeClasses = large
@@ -59,22 +60,22 @@ export const IconButton = ({
       ? "p-1.5 text-xs"
       : "p-3 text-sm";
   const outlineClasses = outline
-    ? "bg-transparent hover:bg-inherit border"
+    ? "bg-transparent hover:bg-button-inverted border"
     : transparent
       ? "bg-transparent border-none"
-      : "bg-inherit border border-inherit";
+      : "dark:bg-button-accent bg-button-inverted border border-base dark:border-inverted";
   const disabledClasses = disabled
-    ? "disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed"
+    ? "disabled:text-muted disabled:border-muted disabled:shadow-none disabled:cursor-not-allowed"
     : transparent
-      ? "hover:text-inherit"
-      : "hover:bg-inherit";
+      ? "hover:text-muted"
+      : "dark:hover:bg-button-accent-hover hover:bg-button-inverted-hover";
   const iconClasses = `${small ? "w-3.5 h-3.5" : "w-5 h-5"} ${
     large && "w-6 h-6"
   }`;
   const closeIconClasses = `${small ? "w-2.5 h-2.5" : "w-3 h-3"} ${
     large && "w-4 h-4"
   }`;
-  const loadingClasses = `text-gray-200 animate-spin fill-blue-500 animate-spin shrink-0 ${
+  const loadingClasses = `text-muted animate-spin fill-blue-500 animate-spin shrink-0 ${
     small ? "w-3 h-3" : "w-4 h-4"
   } ${large && "w-6 h-6"}`;
 
@@ -82,7 +83,7 @@ export const IconButton = ({
     <button
       disabled={disabled}
       onClick={onClick}
-      className={`${baseClasses} ${style} ${widthClasses} ${roundedClasses} ${sizeClasses} ${outlineClasses} ${disabledClasses}`}
+      className={`${baseClasses} ${style} ${widthClasses} ${roundedClasses} ${sizeClasses} ${outlineClasses} ${disabledClasses} ${theme}`}
     >
       {icon ? (
         icon

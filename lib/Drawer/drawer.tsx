@@ -5,9 +5,10 @@ interface DrawerProps {
   children: React.ReactNode;
   position: "top" | "bottom" | "left" | "right";
   label: string;
+  theme?: string;
 }
 
-export const Drawer = ({ children, position, label }: DrawerProps) => {
+export const Drawer = ({ children, position, label, theme }: DrawerProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDrawer = () => {
@@ -15,13 +16,9 @@ export const Drawer = ({ children, position, label }: DrawerProps) => {
   };
 
   return (
-    <div className="relative w-full h-full">
+    <div className={`relative w-full h-full ${theme}`}>
       {/* Toggle Button */}
-      <Button
-        onClick={toggleDrawer}
-      >
-        {label}
-      </Button>
+      <Button onClick={toggleDrawer}>{label}</Button>
 
       {/* Drawer Overlay */}
       <div
@@ -36,7 +33,7 @@ export const Drawer = ({ children, position, label }: DrawerProps) => {
       {/* Drawer Content */}
       <aside
         className={`
-          bg-inherit fixed z-50 text-inherit duration-500 transition-transform transform
+          bg-base text-base dark:bg-muted dark:text-inverted fixed z-50 duration-500 transition-transform transform
           ${
             position === "top" && "h-[40vh] md:h-[60vh] min-w-full top-0 left-0"
           }
@@ -69,7 +66,7 @@ export const Drawer = ({ children, position, label }: DrawerProps) => {
           <span className="text-lg font-semibold">{label}</span>
           <button
             onClick={toggleDrawer}
-            className="p-2 scale-100 text-inherit hover:scale-110 transition-transform ease-in-out duration-300"
+            className="p-2 scale-100 text-base dark:text-inverted hover:scale-110 transition-transform ease-in-out duration-300"
           >
             <svg
               className="w-5 h-5"

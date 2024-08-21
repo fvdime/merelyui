@@ -34,6 +34,7 @@ export const Input = ({
   bll,
   brl,
   transparent,
+  theme,
 }: InputProps) => {
   const renderLabel = (text: string | undefined) => text && <span>{text}</span>;
 
@@ -41,27 +42,32 @@ export const Input = ({
     start && end ? "justify-between" : start ? "justify-start" : "justify-end";
 
   const inputClasses = [
-    "py-2 px-4 focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400",
+    "py-2 px-4 focus:outline-none focus:ring-0 focus:border-info placeholder:text-muted dark:placeholder:text-soft text-base dark:text-inverted",
     style,
     fullWidth ? "w-full" : "w-fit",
-    rounded ? "rounded-full" : underline ? "rounded-none" : "rounded-md",
+    rounded ? "rounded-full" : underline ? "rounded-none" : "rounded",
     large
       ? "px-4 py-5 text-lg placeholder:text-lg"
       : small
         ? "text-xs py-[0.3rem] px-4 placeholder:text-xs"
         : "py-2.5 px-4 text-sm placeholder:text-sm",
-    transparent ? "bg-transparent" : "bg-inherit",
+    transparent ? "bg-transparent" : "bg-base dark:bg-base",
     nooutline
-      ? "border-none bg-inherit"
+      ? "border-none bg-base dark:bg-base"
       : underline
         ? "border-b bg-transparent"
-        : "border border-inherit",
+        : "border border-base dark:border-inverted",
     disabled &&
-      "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed",
+      "disabled:text-muted disabled:border-muted disabled:shadow-none disable:border-muted disabled:cursor-not-allowed",
   ].join(" ");
 
   return (
-    <div className={`${fullWidth ? "w-full" : "w-fit"}`}>
+    <div
+      className={`
+      ${theme}
+      ${fullWidth ? "w-full" : "w-fit"}
+    `}
+    >
       <label
         htmlFor={htmlFor}
         className={`block text-sm ${!label && "sr-only"}`}
@@ -69,7 +75,7 @@ export const Input = ({
         {label}
       </label>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-inherit ${justifyContentClasses(tll, trl)}`}
+        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${justifyContentClasses(tll, trl)}`}
       >
         {renderLabel(tll)}
         {renderLabel(trl)}
@@ -89,7 +95,7 @@ export const Input = ({
         className={inputClasses}
       />
       <div
-        className={`w-full flex items-center mb-2 text-sm text-inherit ${justifyContentClasses(bll, brl)}`}
+        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${justifyContentClasses(bll, brl)}`}
       >
         {renderLabel(bll)}
         {renderLabel(brl)}

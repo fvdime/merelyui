@@ -31,7 +31,7 @@ export const CardCarousel = ({ id, data }: CardCarouselProps) => {
         <button
           type="button"
           onClick={handlePrev}
-          className={`text-black
+          className={`text-base dark:text-inverted
             ${currentIndex === 0 ? "opacity-20 cursor-default" : "hover:-translate-x-1 ease-linear duration-300 transition cursor-pointer"}
           `}
           disabled={currentIndex === 0}
@@ -100,12 +100,12 @@ export const CardCarousel = ({ id, data }: CardCarouselProps) => {
                 alt={item.title ? item.title : "image"}
               />
               <div className={`p-4 absolute bottom-0 right-0 z-10 text-end
-                ${item.color === 'bright' ? "text-black" : "text-white" }
+                ${item.color === 'bright' ? "text-base" : "text-inverted" }
               `}
               >
                 <h2 className="text-xl font-bold">{item.title}</h2>
                 <p 
-                  className={item.color === 'bright' ? "text-gray-800" : "text-gray-100"}
+                  className={item.color === 'bright' ? "text-base" : "text-inverted"}
                 >
                   {item.subtitle}
                 </p>

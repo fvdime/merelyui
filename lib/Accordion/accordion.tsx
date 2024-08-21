@@ -8,9 +8,10 @@ interface AccordionItem {
 
 interface AccordionProps {
   data: AccordionItem[];
+  theme?: string;
 }
 
-export const Accordion = ({ data }: AccordionProps) => {
+export const Accordion = ({ data, theme }: AccordionProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleAccordion = (index: number) => {
@@ -18,9 +19,9 @@ export const Accordion = ({ data }: AccordionProps) => {
   };
 
   return (
-    <div className="h-full w-full flex flex-col items-center justify-center text-inherit">
+    <div className={`${ theme } h-full w-full flex flex-col items-center justify-center text-base dark:text-inverted`}>
       {data.map((item, index) => (
-        <div className="py-2 border-b border-inherit" key={index}>
+        <div className="py-2 border-b border-base dark:border-inverted" key={index}>
           <button
             className="flex items-center justify-between w-full text-left font-semibold px-2 py-1"
             onClick={() => toggleAccordion(index)}

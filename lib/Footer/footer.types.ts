@@ -29,4 +29,5 @@ export interface FooterProps {
   secondary?: boolean;
   tertiary?: boolean;
   quaternary?: boolean;
+  theme?: string;
 }

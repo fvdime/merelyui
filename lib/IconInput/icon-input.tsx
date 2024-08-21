@@ -41,6 +41,7 @@ export const IconInput = ({
   email,
   password,
   icon,
+  theme,
 }: IconInputProps) => {
   const renderLabel = (text: string | undefined) => text && <span>{text}</span>;
 
@@ -48,27 +49,32 @@ export const IconInput = ({
     start && end ? "justify-between" : start ? "justify-start" : "justify-end";
 
   const inputClasses = [
-    "focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400 text-inherit",
+    "focus:outline-none focus:ring-0 focus:border-info placeholder:text-muted dark:placeholder:text-soft text-base dark:text-inverted",
     style,
     fullWidth ? "w-full" : "w-fit",
-    rounded ? "rounded-full" : underline ? "rounded-none" : "rounded-md",
+    rounded ? "rounded-full" : underline ? "rounded-none" : "rounded",
     large
       ? "px-4 py-5 text-lg placeholder:text-lg ps-12"
       : small
         ? "text-xs py-[0.3rem] px-4 placeholder:text-xs ps-10"
         : "py-2.5 px-4 text-sm placeholder:text-sm ps-10",
-    transparent ? "bg-transparent" : "bg-inherit",
+    transparent ? "bg-transparent" : "bg-base dark:bg-base",
     nooutline
-      ? "border-none bg-zinc-200"
+      ? "border-none bg-base dark:bg-base"
       : underline
         ? "border-b bg-transparent"
-        : "border border-inherit",
+        : "border border-base dark:border-inverted",
     disabled &&
-      "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed",
+      "disabled:text-muted disabled:border-muted disabled:shadow-none disable:border-muted disabled:cursor-not-allowed",
   ].join(" ");
 
   return (
-    <div className={`${fullWidth ? "w-full" : "w-fit"}`}>
+    <div
+      className={`
+      ${theme}
+      ${fullWidth ? "w-full" : "w-fit"}
+    `}
+    >
       <label
         htmlFor={htmlFor}
         className={`block text-sm ${!label && "sr-only"}`}
@@ -76,7 +82,7 @@ export const IconInput = ({
         {label ? label : ""}
       </label>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-inherit ${justifyContentClasses(
+        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${justifyContentClasses(
           tll,
           trl
         )}`}
@@ -95,7 +101,7 @@ export const IconInput = ({
             <>
               {email && (
                 <svg
-                  className={`text-gray-500 ${
+                  className={`text-muted dark:text-soft ${
                     small ? "w-3 h-3" : large ? "w-6 h-6" : "w-4 h-4"
                   }`}
                   aria-hidden="true"
@@ -109,7 +115,7 @@ export const IconInput = ({
               )}
               {password && (
                 <svg
-                  className={`text-gray-500 ${
+                  className={`text-muted dark:text-soft ${
                     small ? "w-4 h-4" : large ? "w-8 h-8" : "w-6 h-6"
                   }`}
                   aria-hidden="true"
@@ -139,7 +145,7 @@ export const IconInput = ({
         />
       </div>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-inherit ${justifyContentClasses(
+        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${justifyContentClasses(
           bll,
           brl
         )}`}

@@ -3,6 +3,7 @@ interface DropdownBase {
   header?: React.ReactElement;
   body: React.ReactNode;
   footer?: React.ReactElement;
+  theme?: string;
 }
 
 interface DropdownWithButton extends DropdownBase {

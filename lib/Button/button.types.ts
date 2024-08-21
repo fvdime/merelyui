@@ -8,18 +8,17 @@ interface ButtonBase {
   small?: boolean;
   large?: boolean;
   style?: string;
+  theme?: string;
 }
 
 interface NonDisabledButton extends ButtonBase {
   onClick?: () => void;
   disabled?: false;
-  outline?: boolean;
 }
 
 interface DisabledButton extends ButtonBase {
   disabled: true;
   onClick?: never;
-  outline?: never;
 }
 
 type Button = NonDisabledButton | DisabledButton;
