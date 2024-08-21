@@ -14,6 +14,7 @@ interface AvatarBase {
   bli?: boolean;
   bri?: boolean;
   ring?: boolean;
+  theme?: string;
 }
 
 type AvatarProps = AdjustSizeProps<AvatarBase>;
@@ -32,6 +33,7 @@ export const Avatar = ({
   bli,
   bri,
   ring,
+  theme,
 }: AvatarProps) => {
   const sizeClasses = large ? "w-16 h-16" : small ? "w-8 h-8" : "w-12 h-12";
   const textSizeClasses = large ? "text-xl" : small ? "text-xs" : "text-base";
@@ -56,9 +58,11 @@ export const Avatar = ({
     <div className="w-fit h-fit relative">
       {initials ? (
         <div
-          className={`bg-inherit flex items-center justify-center uppercase ${baseClasses}`}
+          className={`bg-base dark:bg-muted flex items-center justify-center uppercase ${baseClasses} ${theme}`}
         >
-          <span className={`font-medium text-inherit ${textSizeClasses}`}>
+          <span
+            className={`font-medium text-inverted  dark:text-base ${textSizeClasses}`}
+          >
             {initials}
           </span>
         </div>
@@ -68,13 +72,13 @@ export const Avatar = ({
 
       {(tli || tri || bli || bri) && (
         <span
-          className={`absolute ${badgePositionClasses} ${badgeSizeClasses} bg-green-600 rounded-full outline outline-2 outline-inherit`}
+          className={`absolute bg-green-600 rounded-full outline outline-2 outline-base dark:outline-inverted text-inverted ${badgePositionClasses} ${badgeSizeClasses}`}
         />
       )}
 
       {label && (tli || tri || bli || bri) && (
         <span
-          className={`absolute ${badgePositionClasses} bg-green-600 text-inherit py-0 rounded-full outline outline-2 outline-inherit text-xs ${
+          className={`absolute ${badgePositionClasses} bg-green-600 text-inverted py-0 rounded-full outline outline-2 outline-base dark:outline-inverted text-xs ${
             large
               ? "px-1.5 font-medium"
               : small

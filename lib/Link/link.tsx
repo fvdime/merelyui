@@ -27,7 +27,7 @@ interface DefaultLinkProps extends BaseLinkProps {
 
 type Link = SecondaryLinkProps | TertiaryLinkProps | DefaultLinkProps;
 
-type LinkProps = AdjustSizeProps<Link>
+type LinkProps = AdjustSizeProps<Link>;
 
 export const Link = ({
   id,
@@ -38,7 +38,7 @@ export const Link = ({
   tertiary,
   position,
   small,
-  large
+  large,
 }: LinkProps) => {
   const renderStandardLink = () => (
     <a
@@ -46,7 +46,7 @@ export const Link = ({
       href={href}
       target={target}
       className={`w-fit inline-flex items-center justify-center gap-1 group text-inherit
-      ${ small ? "text-sm" : large ? "text-lg" : "text-base" }
+      ${small ? "text-sm" : large ? "text-lg" : "text-base"}
       ${
         !secondary &&
         "border-b-0 bg-no-repeat bg-gradient-to-b from-transparent to-transparent hover:bg-gradient-to-b hover:from-transparent hover:to-current hover:bg-[length:100%_2px] bg-[length:0_2px] bg-bottom transition-[background-size] duration-500 ease-in-out"
@@ -60,7 +60,7 @@ export const Link = ({
       {secondary && (
         <svg
           className={`duration-300 ease-in-out transition-transform shrink-0 
-          ${ small ? "w-3 h-3" : large ? "w-4 h-4" : "w-3.5 h-3.5" }
+          ${small ? "w-3 h-3" : large ? "w-4 h-4" : "w-3.5 h-3.5"}
           ${
             position === "left"
               ? "order-1 group-hover:-translate-x-1 rotate-180"
@@ -82,7 +82,7 @@ export const Link = ({
       id={id}
       className={`
         relative inline-block overflow-hidden group
-        ${ small ? "h-6 w-20 text-sm" : large ? "h-12 w-32 text-lg" : "h-8 w-24 text-base" }
+        ${small ? "h-4 w-20 text-xs" : large ? "h-12 w-32 text-lg" : "h-8 w-24 text-base"}
       `}
     >
       <a

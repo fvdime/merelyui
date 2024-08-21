@@ -3,7 +3,7 @@ import { DropdownHandle, DropdownProps } from "./dropdown.types";
 import { Button } from "merelyui";
 
 export const Dropdown = React.forwardRef<DropdownHandle, DropdownProps>(
-  ({ id, header, body, footer, button, label }, ref) => {
+  ({ id, header, body, footer, button, label, theme }, ref) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -31,18 +31,14 @@ export const Dropdown = React.forwardRef<DropdownHandle, DropdownProps>(
       };
     }, []);
 
-    if (!isOpen) return null
+    if (!isOpen) return null;
 
     return (
-      <div className="relative">
+      <div className={`${theme} relative`}>
         {/* Render the external button if provided */}
         {button ? button : null}
         {label && (
-          <Button
-            onClick={() => setIsOpen((prev) => !prev)}
-          >
-            {label}
-          </Button>
+          <Button onClick={() => setIsOpen((prev) => !prev)}>{label}</Button>
         )}
 
         {isOpen && (
@@ -51,7 +47,7 @@ export const Dropdown = React.forwardRef<DropdownHandle, DropdownProps>(
             ref={dropdownRef}
             className="w-fit h-fit max-w-full max-h-full absolute z-10 animate-slideIn"
           >
-            <div className="h-full lg:h-auto border-0 rounded-lg shadow-lg flex flex-col w-full bg-inherit text-inherit outline-none focus:outline-none">
+            <div className="h-full lg:h-auto border-0 rounded-lg shadow-lg flex flex-col w-full bg-base text-base dark:bg-muted dark:text-inverted outline-none focus:outline-none">
               <div className="flex items-center justify-between p-8 rounded-t">
                 {header}
               </div>

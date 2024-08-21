@@ -1,16 +1,18 @@
 import { Link, SocialLink } from "merelyui";
 import { FooterProps, FooterSocial } from "./footer.types";
 
-export const Footer= ({
+export const Footer = ({
   footerData,
   secondary,
   tertiary,
   quaternary,
+  theme,
 }: FooterProps) => {
   return (
     <footer
-      className={`bg-white h-full w-full
-    ${!(tertiary || quaternary) && "border-t border-gray-50"}
+      className={`bg-base text-base dark:bg-muted dark:text-inverted h-full w-full
+    ${!(tertiary || quaternary) && "border-t border-base dark:border-inverted"}
+    ${theme}
     `}
     >
       {footerData.map((data, i) => (
@@ -51,7 +53,7 @@ export const Footer= ({
                   {data.logo}
                 </a>
               )}
-              <p className="text-sm text-gray-500">{data.content}</p>
+              <p className="text-sm text-soft">{data.content}</p>
             </div>
             <div
               className={`flex items-center gap-8
@@ -67,18 +69,27 @@ export const Footer= ({
                 data.links.map((link) => (
                   <div key={link.id}>
                     {secondary || quaternary ? (
-                      <Link href={link.href!} label={link.label} target="_blank" small/>
-
+                      <Link
+                        href={link.href!}
+                        label={link.label}
+                        target="_blank"
+                        small
+                      />
                     ) : (
                       <h2 className="mb-4 text-sm font-semibold uppercase underline">
                         {link.label}
                       </h2>
                     )}
-                    <ul className="text-gray-600 font-medium text-sm">
+                    <ul className="text-soft font-medium text-sm">
                       {link.links &&
                         link.links.map((link) => (
                           <li key={link.href} className="mb-2.5">
-                             <Link href={link.href!} label={link.name} target="_blank"  small/>
+                            <Link
+                              href={link.href!}
+                              label={link.name}
+                              target="_blank"
+                              small
+                            />
                           </li>
                         ))}
                     </ul>
@@ -86,25 +97,26 @@ export const Footer= ({
                 ))}
             </div>
           </section>
-          <section
-            className="w-full flex flex-col items-center justify-center text-xs"
-          >
-            <hr className="w-full my-4 sm:mx-auto border-zinc-300" />
+          <section className="w-full flex flex-col items-center justify-center text-xs">
+            <hr className="w-full my-4 sm:mx-auto border-base" />
             <div
-              className={`w-full p-2 flex flex-col md:flex-row justify-center items-center  gap-4
+              className={`w-full p-2 flex flex-col md:flex-row justify-center items-center gap-4
             ${data.socials && "md:justify-between"}
             `}
             >
-              <span className="text-zinc-500">
-                © 2024{" "}
-                <Link href={data.href!} label={data.logo}small/>
-
-                . All Rights Reserved.
+              <span className="text-muted">
+                © 2024 <Link href={data.href!} label={data.logo} small />. All
+                Rights Reserved.
               </span>
               <div className="flex flex-row gap-4">
                 {data.socials &&
                   data.socials.map((social: FooterSocial, i: number) => (
-                    <SocialLink key={i} social={social.social} href={social.href} small />
+                    <SocialLink
+                      key={i}
+                      social={social.social}
+                      href={social.href}
+                      small
+                    />
                   ))}
               </div>
             </div>

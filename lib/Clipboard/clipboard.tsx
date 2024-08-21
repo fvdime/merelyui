@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
 interface ClipboardBaseProps {
-  content: string;
   children: React.ReactNode;
+  content: string;
+  theme?: string;
 }
 
 interface WithTitle extends ClipboardBaseProps {
@@ -27,6 +28,7 @@ export const Clipboard = ({
   content,
   title,
   terminal,
+  theme,
 }: ClipboardProps) => {
   const [copied, setCopied] = useState<boolean>(false);
   const [animateOut, setAnimateOut] = useState<boolean>(false);
@@ -49,9 +51,14 @@ export const Clipboard = ({
   };
 
   return (
-    <section className="w-full h-full border rounded-md bg-inherit border-inherit text-inherit">
+    <section
+      className={`
+      w-full h-full border rounded-md bg-base border-base text-base dark:bg-muted dark:border-inverted dark:text-inverted
+      ${theme}
+    `}
+    >
       {(title || terminal) && (
-        <div className="w-full h-full flex flex-row items-center justify-between py-2 px-4 border-b border-inherit">
+        <div className="w-full h-full flex flex-row items-center justify-between py-2 px-4 border-b border-base dark:border-inverted">
           <div className="flex flex-row items-center justify-start gap-1">
             {terminal && (
               <>
@@ -118,7 +125,7 @@ export const Clipboard = ({
         {!title && !terminal && (
           <button
             onClick={handleCopy}
-            className={`transition-opacity duration-300 ease-out ${
+            className={`transition-opacity duration-300 ease-out p-4 ${
               animateOut ? "opacity-0" : "opacity-100"
             }`}
           >

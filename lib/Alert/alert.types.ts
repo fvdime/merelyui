@@ -8,4 +8,5 @@ export interface AlertProps {
   status?: "info" | "success" | "warning" | "danger";
   position?: "top-left" | "top-right" | "bottom-left" | "bottom-right" | "top" | "bottom"
   icon?: React.ReactElement;
+  theme?: string;
 }

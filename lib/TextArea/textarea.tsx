@@ -32,6 +32,7 @@ export const TextArea = ({
   bll,
   brl,
   transparent,
+  theme,
 }: TextAreaProps) => {
   const renderLabel = (text: string | undefined) => text && <span>{text}</span>;
 
@@ -39,7 +40,7 @@ export const TextArea = ({
     start && end ? "justify-between" : start ? "justify-start" : "justify-end";
 
   const textareaClasses = [
-    "py-2 px-4 focus:outline-none focus:ring-0 focus:border-blue-500 placeholder:text-zinc-400 rounded-sm",
+    "py-2 px-4 focus:border-info placeholder:text-muted dark:placeholder:text-soft text-base dark:text-inverted focus:ring-0 focus:outline-none rounded",
     style,
     fullWidth ? "w-full" : "w-fit",
     large
@@ -47,18 +48,22 @@ export const TextArea = ({
       : small
         ? "text-xs py-[0.3rem] px-4 placeholder:text-xs"
         : "py-2.5 px-4 text-sm placeholder:text-sm",
-    transparent ? "bg-transparent" : "bg-inherit",
     nooutline
-      ? "border-none bg-inherit"
+      ? "border-none bg-base dark:bg-base"
       : underline
         ? "border-b bg-transparent"
-        : "border border-inherit",
+        : "border border-base dark:border-inverted",
+    transparent ? "bg-transparent" : "bg-base dark:bg-base",
     disabled &&
-      "disabled:bg-zinc-200 disabled:text-zinc-400 disabled:border-zinc-300 disabled:shadow-none disabled:cursor-not-allowed",
+      "disabled:text-muted disabled:border-muted disabled:shadow-none disable:border-muted disabled:cursor-not-allowed",
   ].join(" ");
 
   return (
-    <div className={`${fullWidth ? "w-full" : "w-fit"}`}>
+    <div
+      className={`
+      ${theme}
+      ${fullWidth ? "w-full" : "w-fit"}`}
+    >
       <label
         htmlFor={htmlFor}
         className={`block text-sm ${!label && "sr-only"}`}
@@ -66,7 +71,7 @@ export const TextArea = ({
         {label}
       </label>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-inherit ${justifyContentClasses(
+        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${justifyContentClasses(
           tll,
           trl
         )}`}
@@ -89,7 +94,7 @@ export const TextArea = ({
         className={textareaClasses}
       />
       <div
-        className={`w-full flex items-center mb-2 text-sm text-inherit ${justifyContentClasses(
+        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${justifyContentClasses(
           bll,
           brl
         )}`}

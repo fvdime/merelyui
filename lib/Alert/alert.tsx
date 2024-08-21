@@ -10,6 +10,7 @@ export const Alert = ({
   status,
   icon,
   position = "top-right",
+  theme,
 }: AlertProps) => {
   const [visible, setVisible] = useState<boolean>(false);
 
@@ -28,13 +29,13 @@ export const Alert = ({
   }, [onClick]);
 
   const baseClasses =
-    "min-w-36 max-w-96 h-fit flex items-center justify-center gap-2 py-2.5 px-4 rounded border transition-all ease-in-out duration-500 cursor-pointer fixed z-[99] border-inherit text-inherit bg-inherit";
+    "min-w-36 max-w-96 h-fit flex items-center justify-center gap-2 py-2.5 px-4 rounded border transition-all ease-in-out duration-500 cursor-pointer fixed z-[99]  bg-base border-base text-base dark:bg-muted dark:border-inverted dark:text-inverted";
 
   const statusClasses = {
-    info: "border-zinc-200 text-zinc-950 hover:text-zinc-800",
-    success: "border-green-800 text-green-950 hover:text-zinc-700",
-    warning: "border-amber-700 text-amber-950 hover:text-zinc-700",
-    danger: "border-red-700 text-red-950 hover:text-zinc-700",
+    info: "border-info",
+    success: "border-success",
+    warning: "border-warning",
+    danger: "border-warning",
   }[status || "info"];
 
   const positionClasses = {
@@ -117,7 +118,7 @@ export const Alert = ({
   return (
     <div
       id={id}
-      className={`${positionClasses} ${animationClasses} ${baseClasses} ${statusClasses}`}
+      className={`${theme} ${positionClasses} ${animationClasses} ${baseClasses} ${statusClasses}`}
     >
       <div
         className={`w-full gap-2.5 ${
@@ -135,7 +136,7 @@ export const Alert = ({
               onClick={onClick}
             >
               <svg
-                className="w-2.5 h-2.5 ms-4 scale-100 text-inherit hover:scale-110 duration-300 ease-linear transition-transform"
+                className="w-2.5 h-2.5 ms-4 scale-100 text-base dark:text-inverted hover:scale-110 duration-300 ease-linear transition-transform"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -164,7 +165,7 @@ export const Alert = ({
           onClick={onClick}
         >
           <svg
-            className="w-2.5 h-2.5 ms-4 scale-100 text-inherit hover:scale-110 duration-300 ease-linear transition-transform"
+            className="w-2.5 h-2.5 ms-4 scale-100 text-base dark:text-inverted hover:scale-110 duration-300 ease-linear transition-transform"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

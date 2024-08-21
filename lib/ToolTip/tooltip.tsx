@@ -3,6 +3,7 @@ import React from "react";
 interface ToolTipBase {
   children: React.ReactNode;
   position: "top" | "bottom" | "left" | "right";
+  theme?: string;
 }
 
 interface LabelToolTip extends ToolTipBase {
@@ -22,13 +23,14 @@ export const ToolTip = ({
   position,
   label,
   button,
+  theme,
 }: ToolTipProps) => {
   return (
-    <div className="relative group">
+    <div className={`relative group ${theme}`}>
       {button ? (
         button
       ) : (
-        <div className="text-inherit bg-inherit focus:ring-0 focus:outline-none focus:ring-inherit font-medium rounded-lg text-sm px-6 py-2.5 text-center transition duration-300 ease-in-out">
+        <div className="dark:bg-button-inverted text-inverted bg-button-accent dark:text-base focus:ring-0 focus:outline-none focus:ring-base font-medium rounded-lg text-sm px-6 py-2.5 text-center transition duration-300 ease-in-out">
           {label}
         </div>
       )}

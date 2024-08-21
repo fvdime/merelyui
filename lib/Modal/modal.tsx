@@ -6,6 +6,7 @@ interface ModalBase {
   title: string;
   body?: React.ReactElement;
   footer?: React.ReactElement;
+  theme?: string;
 }
 
 interface ModalWithButton extends ModalBase {
@@ -26,7 +27,7 @@ export interface ModalHandle {
 }
 
 export const Modal = React.forwardRef<ModalHandle, ModalProps>(
-  ({ body, footer, label, title, button }, ref) => {
+  ({ body, footer, label, title, button, theme }, ref) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     useImperativeHandle(
@@ -43,32 +44,32 @@ export const Modal = React.forwardRef<ModalHandle, ModalProps>(
     };
 
     return (
-      <div className="relative">
+      <div
+        className={`
+        relative
+        ${theme}
+      `}
+      >
         {/* Toggle Button */}
         {button ? button : null}
-        {label && (
-          <Button
-            onClick={toggleModal}
-          >
-            {label}
-          </Button>
-        )}
+        {label && <Button onClick={toggleModal}>{label}</Button>}
 
         <div
           onClick={toggleModal}
-          className={`flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus-outline-none bg-black/50 dark:bg-white/50 backdrop-blur-sm bg-opacity-70 ${
+          className={`flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus-outline-none bg-black/50 dark:bg-white/50 backdrop-blur-sm bg-opacity-70 
+          ${
             isOpen
               ? "opacity-100 visible pointer-events-auto"
               : "opacity-0 invisible pointer-events-none"
           }`}
         >
           <div className="relative w-full lg:w-1/2 my-8 mx-auto lg:max-w-3xl max-h-full lg:h-auto transition-transform transform duration-500">
-            <div className="h-full lg:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-inherit text-inherit outline-none focus:outline-none">
+            <div className="h-full lg:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-base text-base dark:bg-muted dark:text-inverted outline-none focus:outline-none">
               <div className="flex items-center justify-between p-8 rounded-t">
                 <h3 className="text-xl font-semibold">{title}</h3>
                 <button
                   onClick={toggleModal}
-                  className="p-2 scale-100 text-inherit hover:scale-110 transition-transform ease-in-out duration-300"
+                  className="p-2 scale-100 text-base dark:text-inverted hover:scale-110 transition-transform ease-in-out duration-300"
                 >
                   <svg
                     className="w-5 h-5"

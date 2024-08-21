@@ -20,4 +20,5 @@ export interface BaseInputProps {
   trl?: string;
   bll?: string;
   brl?: string;
+  theme?: string;
 }

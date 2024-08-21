@@ -15,6 +15,7 @@ interface SocialLinkBase {
   secondary?: boolean;
   onClick?: () => void;
   disabled?: boolean;
+  theme?: string;
 }
 
 type SocialLinkProps = AdjustSizeProps<SocialLinkBase>;
@@ -28,6 +29,7 @@ export const SocialLink = ({
   large,
   disabled,
   small,
+  theme,
 }: SocialLinkProps) => {
   const renderSocialIcon = () => {
     switch (social) {
@@ -174,10 +176,11 @@ export const SocialLink = ({
       href={disabled ? undefined : href}
       onClick={disabled ? undefined : onClick}
       target="_blank"
-      className={`text-center bg-transparent scale-100 text-inherit hover:scale-110 transition-transform ease-in-out duration-300
+      className={`text-center bg-transparent scale-100 text-base dark:text-inverted hover:scale-110 transition-transform ease-in-out duration-300
         ${small ? "text-xs" : large ? "text-lg" : "text-sm"}
-        ${disabled && "text-gray-200 shadow-none cursor-not-allowed"}
+        ${disabled && "text-muted/50 shadow-none cursor-not-allowed"}
         ${secondary && "flex flex-row justify-center items-center gap-2"}
+        ${theme}
         `}
     >
       {renderSocialIcon()}

@@ -10,23 +10,24 @@ interface TabProps {
   id?: string;
   data: DataProps[];
   secondary?: boolean;
+  theme?: string;
 }
 
-export const Tabs = ({ id, data, secondary }: TabProps) => {
+export const Tabs = ({ id, data, secondary, theme }: TabProps) => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   const activeClasses = secondary
-    ? "bg-black text-black dark:text-white hover:text-gray-200 border-black dark:border-white"
-    : "border-b-2 text-black dark:text-white hover:text-gray-500 border-black dark:border-white";
+    ? "bg-base dark:bg-base text-base dark:text-inverted border-inverted dark:border-base"
+    : "border-b-2 text-base dark:hover:text-soft border-inverted dark:border-base";
 
   const inActiveClasses = secondary
-    ? "text-gray-500 hover:text-gray-600"
-    : "text-gray-500 hover:text-gray-600 hover:border-b-2 hover:border-gray-300";
+    ? "text-muted dark:text-soft hover:text-soft dark:hover:text-muted"
+    : "text-muted dark:text-soft hover:text-soft dark:hover:text-muted hover:border-b-2 hover:border-inverted dark:hover:border-base";
 
   return (
-    <>
-      <div id={id} className="mb-4 border-b">
-        <ul className="flex flex-wrap -mb-px text-sm font-medium text-center">
+    <section id={id} className={theme}>
+      <div className="mb-4 border-b">
+        <ul className="flex flex-wrap -mb-px font-medium text-center">
           {data.map((tab, index) => (
             <li key={index} className="mx-1">
               <button
@@ -56,6 +57,6 @@ export const Tabs = ({ id, data, secondary }: TabProps) => {
           </div>
         ))}
       </div>
-    </>
+    </section>
   );
 };

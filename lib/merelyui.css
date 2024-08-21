@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --color-fill: 4, 5, 4;
-    --color-muted: 8,8,8;
-    --color-inverted: 248,248,248;
+    --color-fill: 248,248,248;
+    --color-muted: 129,130,129;
+    --color-inverted: 4, 5, 4;
     --color-text-base: 0, 0, 0;
     --color-text-soft: 127, 127, 127;
     --color-text-muted: 178,178,178;
@@ -14,7 +14,8 @@
     --color-text-destructive: 79, 70, 229;
     --color-button-accent: 4, 5, 4;
     --color-button-accent-hover: 29, 29, 29;
-    --color-button-muted: 229,230,229;
+    --color-button-inverted: 229,230,229;
+    --color-button-inverted-hover: 206,207,206;
     --color-button-destructive: 170,0,0;
     --color-button-destructive-hover: 178,25,25;
     --color-border-base: 208,208,208;

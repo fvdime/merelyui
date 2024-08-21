@@ -49,4 +49,5 @@ export interface NavbarProps {
   tertiary?: boolean;
   sticky?: boolean;
   modalRef?: React.RefObject<HTMLDivElement>
+  theme: string;
 }
