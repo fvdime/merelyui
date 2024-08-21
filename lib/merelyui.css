@@ -1,3 +1,91 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --color-fill: 4, 5, 4;
+    --color-muted: 8,8,8;
+    --color-inverted: 248,248,248;
+    --color-text-base: 0, 0, 0;
+    --color-text-soft: 127, 127, 127;
+    --color-text-muted: 178,178,178;
+    --color-text-inverted: 255, 255, 255;
+    --color-text-destructive: 79, 70, 229;
+    --color-button-accent: 4, 5, 4;
+    --color-button-accent-hover: 29, 29, 29;
+    --color-button-muted: 229,230,229;
+    --color-button-destructive: 170,0,0;
+    --color-button-destructive-hover: 178,25,25;
+    --color-border-base: 208,208,208;
+    --color-border-muted: 248,248,248;
+    --color-border-inverted: 26, 26, 30;
+    --color-border-danger: 234,0,0;
+    --color-border-success: 25,142,25;
+    --color-border-info: 111,168,220;
+    --color-border-warning: 216,174,45;
+    --color-outline-base: 183,211,237;
+    --color-outline-muted: 242,242,242;
+    --color-outline-inverted: 4, 5, 4;
+    --color-ring-base: 183,211,237;
+    --color-ring-muted: 255,255,255;
+    --color-ring-inverted: 4, 5, 4;
+  }
+  .theme-nova {
+    --color-fill: 102, 102, 204;
+    --color-muted: 25, 25, 45;
+    --color-inverted: 0, 0, 10;
+    --color-text-base: 0, 0, 10;
+    --color-text-soft: 100, 150, 200;
+    --color-text-muted: 130, 130, 190;
+    --color-text-inverted: 240, 245, 255;
+    --color-text-destructive: 102, 51, 153;
+    --color-button-accent: 34, 85, 102;
+    --color-button-accent-hover: 44, 110, 130;
+    --color-button-muted: 200, 210, 220;
+    --color-button-destructive: 120, 0, 80;
+    --color-button-destructive-hover: 140, 10, 100;
+    --color-border-base: 180, 200, 230;
+    --color-border-muted: 220, 225, 235;
+    --color-border-inverted: 102, 51, 153;
+    --color-border-danger: 153, 0, 51;
+    --color-border-success: 25, 110, 125;
+    --color-border-info: 80, 140, 210;
+    --color-border-warning: 190, 160, 75;
+    --color-outline-base: 160, 190, 220;
+    --color-outline-muted: 230, 235, 240;
+    --color-outline-inverted: 34, 85, 102;
+    --color-ring-base: 160, 190, 220;
+    --color-ring-muted: 240, 245, 255;
+    --color-ring-inverted: 34, 85, 102;
+  }
+  .theme-calypso {
+    --color-fill: 18, 31, 34;
+    --color-muted: 116, 82, 68;
+    --color-inverted: 239, 233, 225;
+    --color-text-base: 251,249,247;
+    --color-text-soft: 184, 118, 96;
+    --color-text-muted: 172, 168, 159;
+    --color-text-inverted: 23, 40, 56;
+    --color-text-destructive: 207, 60, 47;
+    --color-button-accent: 184,175,160;
+    --color-button-accent-hover: 165,157,144;
+    --color-button-muted: 158,154,147;
+    --color-button-destructive: 172,43,36;
+    --color-button-destructive-hover: 154,38,32;
+    --color-border-base: 9,13,10;
+    --color-border-muted: 142, 132, 118; 
+    --color-border-inverted: 78, 91, 99;
+    --color-border-danger: 209, 72, 55;
+    --color-border-success: 141, 170, 97;
+    --color-border-info: 108, 140, 178;
+    --color-border-warning: 220, 180, 68; 
+    --color-outline-base: 240, 208, 153;
+    --color-outline-muted: 189, 160, 133;
+    --color-outline-inverted: 18, 31, 34; 
+    --color-ring-base: 78, 91, 99;
+    --color-ring-muted: 172, 168, 159;
+    --color-ring-inverted: 240, 208, 153;
+    
+  }
+}
