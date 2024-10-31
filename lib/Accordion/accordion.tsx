@@ -26,9 +26,9 @@ export const Accordion = ({ data, theme }: AccordionProps) => {
             className="flex items-center justify-between w-full text-left font-semibold px-2 py-1"
             onClick={() => toggleAccordion(index)}
           >
-            <h1 className="uppercase font-medium text-sm">{item.title}</h1>
+            <h1 className="uppercase font-medium text-base dark:text-inverted text-sm">{item.title}</h1>
             <svg
-              className={`shrink-0 ${item.secondary && "hidden"}`}
+              className={`shrink-0 fill-current text-base dark:text-inverted ${item.secondary && "hidden"}`}
               width="16"
               height="16"
               xmlns="http://www.w3.org/2000/svg"
