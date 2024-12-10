@@ -5,6 +5,7 @@ interface BaseLinkProps {
   href: string;
   id?: string;
   target?: string;
+  download?: boolean;
 }
 
 interface SecondaryLinkProps extends BaseLinkProps {
@@ -39,12 +40,14 @@ export const Link = ({
   position,
   small,
   large,
+  download,
 }: LinkProps) => {
   const renderStandardLink = () => (
     <a
       id={id}
       href={href}
       target={target}
+      download={download}
       className={`w-fit inline-flex items-center justify-center gap-1 group text-inherit
       ${small ? "text-sm" : large ? "text-lg" : "text-base"}
       ${
@@ -88,14 +91,16 @@ export const Link = ({
       <a
         href={href}
         target={target}
-        className="absolute inset-0 flex items-center justify-center transition-transform ease-in-out duration-700 group-hover:-translate-y-full translate-y-0"
+        download={download}
+        className="absolute inset-0 flex items-center justify-center transition-transform ease-in-out duration-1000 group-hover:-translate-y-full translate-y-0 text-inherit"
       >
         {label}
       </a>
       <a
         href={href}
         target={target}
-        className="absolute inset-0 flex items-center justify-center transition-transform ease-in-out duration-700 translate-y-full group-hover:translate-y-0"
+        download={download}
+        className="absolute inset-0 flex items-center justify-center transition-transform ease-in-out duration-1000 translate-y-full group-hover:translate-y-0 text-inherit"
       >
         {label}
       </a>

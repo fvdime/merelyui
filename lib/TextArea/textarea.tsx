@@ -40,7 +40,7 @@ export const TextArea = ({
     start && end ? "justify-between" : start ? "justify-start" : "justify-end";
 
   const textareaClasses = [
-    "py-2 px-4 focus:border-info placeholder:text-muted dark:placeholder:text-soft text-base dark:text-inverted focus:ring-0 focus:outline-none rounded",
+    "py-2 px-4 focus:border-info placeholder:text-muted dark:placeholder:text-soft text-base dark:text-inverted focus:ring-0 focus:outline-none",
     style,
     fullWidth ? "w-full" : "w-fit",
     large
@@ -52,7 +52,7 @@ export const TextArea = ({
       ? "border-none bg-base dark:bg-base"
       : underline
         ? "border-b bg-transparent"
-        : "border border-base dark:border-inverted",
+        : "border border-base dark:border-inverted rounded",
     transparent ? "bg-transparent" : "bg-base dark:bg-base",
     disabled &&
       "disabled:text-muted disabled:border-muted disabled:shadow-none disable:border-muted disabled:cursor-not-allowed",
