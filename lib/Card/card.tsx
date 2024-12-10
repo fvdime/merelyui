@@ -83,7 +83,7 @@ export const Card = ({
             />
             <div className="w-full">
               <div className="flex justify-between items-center">
-                <h1 className="text-lg font-semibold text-base dark:text-inverted">{title}</h1>
+                <h1 className="text-lg font-semibold text-basis dark:text-inverted">{title}</h1>
                 {ranking && 
                   <div className="flex items-center">
                     <svg
@@ -114,12 +114,12 @@ export const Card = ({
               />
             </div>
             <div className="absolute bottom-0 p-4 transition group-hover:translate-x-3">
-              <h1 className="text-xl font-medium text-base dark:text-inverted">{title}</h1>
+              <h1 className="text-xl font-medium text-basis dark:text-inverted">{title}</h1>
             </div>
           </>
         ) : (
           <>
-            <h1 className="text-2xl font-medium mb-1 text-base dark:text-inverted">{title}</h1>
+            <h1 className="text-2xl font-medium mb-1 text-basis dark:text-inverted">{title}</h1>
             <p className="text-sm text-soft">{subtitle}</p>
             <img
               src={src}
@@ -133,7 +133,7 @@ export const Card = ({
               <button
                 type="button"
                 onClick={onClick}
-                className="py-1.5 px-6 text-sm font-medium text-inverted dark:text-base bg-button-accent dark:bg-button-inverted rounded-full hover:bg-button-accent-hover dark:hover:bg-button-inverted-hover dark:opacity-80 focus:ring focus:ring-base dark:focus:ring-muted transition"
+                className="py-1.5 px-6 text-sm font-medium text-inverted dark:text-basis bg-button-accent dark:bg-button-inverted rounded-full hover:bg-button-accent-hover dark:hover:bg-button-inverted-hover dark:opacity-80 focus:ring focus:ring-base dark:focus:ring-muted transition"
               >
                 {label}
               </button>

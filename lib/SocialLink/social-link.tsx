@@ -176,7 +176,7 @@ export const SocialLink = ({
       href={disabled ? undefined : href}
       onClick={disabled ? undefined : onClick}
       target="_blank"
-      className={`text-center bg-transparent scale-100 text-base dark:text-inverted hover:scale-110 transition-transform ease-in-out duration-300
+      className={`text-center bg-transparent scale-100 text-basis dark:text-inverted hover:scale-110 transition-transform ease-in-out duration-300
         ${small ? "text-xs" : large ? "text-lg" : "text-sm"}
         ${disabled && "text-muted/50 shadow-none cursor-not-allowed"}
         ${secondary && "flex flex-row justify-center items-center gap-2"}

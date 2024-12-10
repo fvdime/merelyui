@@ -40,7 +40,7 @@ export const TextArea = ({
     start && end ? "justify-between" : start ? "justify-start" : "justify-end";
 
   const textareaClasses = [
-    "py-2 px-4 focus:border-info placeholder:text-muted dark:placeholder:text-soft text-base dark:text-inverted focus:ring-0 focus:outline-none",
+    "py-2 px-4 focus:border-info placeholder:text-muted dark:placeholder:text-soft text-basis dark:text-inverted focus:ring-0 focus:outline-none",
     style,
     fullWidth ? "w-full" : "w-fit",
     large
@@ -71,7 +71,7 @@ export const TextArea = ({
         {label}
       </label>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${justifyContentClasses(
+        className={`w-full flex items-center mb-2 text-sm text-basis dark:text-inverted ${justifyContentClasses(
           tll,
           trl
         )}`}
@@ -94,7 +94,7 @@ export const TextArea = ({
         className={textareaClasses}
       />
       <div
-        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${justifyContentClasses(
+        className={`w-full flex items-center mb-2 text-sm text-basis dark:text-inverted ${justifyContentClasses(
           bll,
           brl
         )}`}

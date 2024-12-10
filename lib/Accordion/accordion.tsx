@@ -19,16 +19,16 @@ export const Accordion = ({ data, theme }: AccordionProps) => {
   };
 
   return (
-    <div className={`${ theme } h-full w-full flex flex-col items-center justify-center text-base dark:text-inverted`}>
+    <div className={`${ theme } h-full w-full flex flex-col items-center justify-center text-basis dark:text-inverted`}>
       {data.map((item, index) => (
         <div className="py-2 border-b border-base dark:border-inverted" key={index}>
           <button
-            className="flex items-center justify-between w-full text-left font-semibold px-2 py-1 hover:scale-[0.99] transition duration-150 ease-in cursor-pointer"
+            className="flex items-center justify-between w-full text-left font-semibold px-2 py-1 hover:px-4 transition-all duration-300 ease-in-out cursor-pointer"
             onClick={() => toggleAccordion(index)}
           >
-            <h1 className="uppercase font-medium text-base dark:text-inverted text-sm">{item.title}</h1>
+            <h1 className="uppercase font-medium text-basis dark:text-inverted text-sm">{item.title}</h1>
             <svg
-              className={`shrink-0 fill-current text-base dark:text-inverted ${item.secondary && "hidden"}`}
+              className={`shrink-0 fill-current text-basis dark:text-inverted ${item.secondary && "hidden"}`}
               width="16"
               height="16"
               xmlns="http://www.w3.org/2000/svg"

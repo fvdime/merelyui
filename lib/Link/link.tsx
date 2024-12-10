@@ -84,7 +84,7 @@ export const Link = ({
     <div
       id={id}
       className={`
-        relative inline-block overflow-hidden group
+        relative inline-block overflow-hidden group text-inherit
         ${small ? "h-4 w-20 text-xs" : large ? "h-12 w-32 text-lg" : "h-8 w-24 text-base"}
       `}
     >

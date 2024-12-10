@@ -53,7 +53,7 @@ export const Clipboard = ({
   return (
     <section
       className={`
-      w-full h-full border rounded-md bg-base border-base text-base dark:bg-muted dark:border-inverted dark:text-inverted
+      w-full h-full border rounded-md bg-base border-base text-basis dark:bg-muted dark:border-inverted dark:text-inverted
       ${theme}
     `}
     >

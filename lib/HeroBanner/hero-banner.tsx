@@ -32,7 +32,7 @@ export const HeroBanner = ({ data }: { data: HeroBannerItem }) => {
 
   return (
     <div
-      className={`w-full bg-base text-base dark:bg-muted dark:text-inverted
+      className={`w-full bg-base text-basis dark:bg-muted dark:text-inverted
         ${full ? "h-screen" : "h-full py-16"}
         ${data.secondary && "relative overflow-hidden flex items-center justify-center"}
         ${data.theme}
@@ -73,7 +73,7 @@ export const HeroBanner = ({ data }: { data: HeroBannerItem }) => {
                     <a
                       key={index}
                       href={item.href}
-                      className="py-1 md:py-2 px-8 md:px-12 mr-2 mb-2 text-xs font-semibold text-base focus:outline-none bg-muted rounded hover:text-muted hover:opacity-80 focus:z-10 focus:ring-4 focus:ring-base duration-500 transition-all ease-in"
+                      className="py-1 md:py-2 px-8 md:px-12 mr-2 mb-2 text-xs font-semibold text-basis focus:outline-none bg-muted rounded hover:text-muted hover:opacity-80 focus:z-10 focus:ring-4 focus:ring-base duration-500 transition-all ease-in"
                     >
                       {item.label}
                     </a>

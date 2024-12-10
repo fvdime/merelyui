@@ -61,7 +61,7 @@ export const Avatar = ({
           className={`bg-base dark:bg-muted flex items-center justify-center uppercase ${baseClasses} ${theme}`}
         >
           <span
-            className={`font-medium text-inverted  dark:text-base ${textSizeClasses}`}
+            className={`font-medium text-inverted dark:text-basis ${textSizeClasses}`}
           >
             {initials}
           </span>

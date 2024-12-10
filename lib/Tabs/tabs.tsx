@@ -17,8 +17,8 @@ export const Tabs = ({ id, data, secondary, theme }: TabProps) => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   const activeClasses = secondary
-    ? "bg-base dark:bg-base text-base dark:text-inverted border-inverted dark:border-base"
-    : "border-b-2 text-base dark:hover:text-soft border-inverted dark:border-base";
+    ? "bg-base dark:bg-base text-basis dark:text-inverted border-inverted dark:border-base"
+    : "border-b-2 text-basis dark:hover:text-soft border-inverted dark:border-base";
 
   const inActiveClasses = secondary
     ? "text-muted dark:text-soft hover:text-soft dark:hover:text-muted"

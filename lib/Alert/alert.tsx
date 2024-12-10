@@ -29,7 +29,7 @@ export const Alert = ({
   }, [onClick]);
 
   const baseClasses =
-    "min-w-36 max-w-96 h-fit flex items-center justify-center gap-2 py-2.5 px-4 rounded border transition-all ease-in-out duration-500 cursor-pointer fixed z-[99]  bg-base border-base text-base dark:bg-muted dark:border-inverted dark:text-inverted";
+    "min-w-36 max-w-96 h-fit flex items-center justify-center gap-2 py-2.5 px-4 rounded border transition-all ease-in-out duration-500 cursor-pointer fixed z-[99]  bg-base border-base text-basis dark:bg-muted dark:border-inverted dark:text-inverted";
 
   const statusClasses = {
     info: "border-info",
@@ -136,7 +136,7 @@ export const Alert = ({
               onClick={onClick}
             >
               <svg
-                className="w-2.5 h-2.5 ms-4 scale-100 text-base dark:text-inverted hover:scale-110 duration-300 ease-linear transition-transform"
+                className="w-2.5 h-2.5 ms-4 scale-100 text-basis dark:text-inverted hover:scale-110 duration-300 ease-linear transition-transform"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -165,7 +165,7 @@ export const Alert = ({
           onClick={onClick}
         >
           <svg
-            className="w-2.5 h-2.5 ms-4 scale-100 text-base dark:text-inverted hover:scale-110 duration-300 ease-linear transition-transform"
+            className="w-2.5 h-2.5 ms-4 scale-100 text-basis dark:text-inverted hover:scale-110 duration-300 ease-linear transition-transform"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

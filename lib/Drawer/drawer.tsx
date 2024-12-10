@@ -33,7 +33,7 @@ export const Drawer = ({ children, position, label, theme }: DrawerProps) => {
       {/* Drawer Content */}
       <aside
         className={`
-          bg-base text-base dark:bg-muted dark:text-inverted fixed z-50 duration-500 transition-transform transform
+          bg-base text-basis dark:bg-muted dark:text-inverted fixed z-50 duration-500 transition-transform transform
           ${
             position === "top" && "h-[40vh] md:h-[60vh] min-w-full top-0 left-0"
           }
@@ -66,7 +66,7 @@ export const Drawer = ({ children, position, label, theme }: DrawerProps) => {
           <span className="text-lg font-semibold">{label}</span>
           <button
             onClick={toggleDrawer}
-            className="p-2 scale-100 text-base dark:text-inverted hover:scale-110 transition-transform ease-in-out duration-300"
+            className="p-2 scale-100 text-basis dark:text-inverted hover:scale-110 transition-transform ease-in-out duration-300"
           >
             <svg
               className="w-5 h-5"

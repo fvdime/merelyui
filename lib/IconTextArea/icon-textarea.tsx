@@ -45,7 +45,7 @@ export const IconTextArea = ({
     start && end ? "justify-between" : start ? "justify-start" : "justify-end";
 
   const textareaClasses = [
-    "focus:border-info placeholder:text-muted dark:placeholder:text-soft text-base dark:text-inverted rounded",
+    "focus:border-info placeholder:text-muted dark:placeholder:text-soft text-basis dark:text-inverted rounded",
     style,
     fullWidth ? "w-full" : "w-fit",
     large
@@ -76,7 +76,7 @@ export const IconTextArea = ({
         {label}
       </label>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${justifyContentClasses(
+        className={`w-full flex items-center mb-2 text-sm text-basis dark:text-inverted ${justifyContentClasses(
           tll,
           trl
         )}`}
@@ -130,7 +130,7 @@ export const IconTextArea = ({
         />
       </div>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${justifyContentClasses(
+        className={`w-full flex items-center mb-2 text-sm text-basis dark:text-inverted ${justifyContentClasses(
           bll,
           brl
         )}`}

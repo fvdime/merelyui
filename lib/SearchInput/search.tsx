@@ -67,7 +67,7 @@ export const Search = ({
         </label>
       )}
       <div
-        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${
+        className={`w-full flex items-center mb-2 text-sm text-basis dark:text-inverted ${
           tll ? "justify-start" : "justify-end"
         } ${tll && trl && "justify-between"}`}
       >
@@ -156,7 +156,7 @@ export const Search = ({
         )}
       </div>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${
+        className={`w-full flex items-center mb-2 text-sm text-basis dark:text-inverted ${
           bll ? "justify-start" : "justify-end"
         } ${bll && brl && "justify-between"}`}
       >

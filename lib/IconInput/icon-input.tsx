@@ -49,7 +49,7 @@ export const IconInput = ({
     start && end ? "justify-between" : start ? "justify-start" : "justify-end";
 
   const inputClasses = [
-    "focus:outline-none focus:ring-0 focus:border-info placeholder:text-muted dark:placeholder:text-soft text-base dark:text-inverted",
+    "focus:outline-none focus:ring-0 focus:border-info placeholder:text-muted dark:placeholder:text-soft text-basis dark:text-inverted",
     style,
     fullWidth ? "w-full" : "w-fit",
     rounded ? "rounded-full" : underline ? "rounded-none" : "rounded",
@@ -82,7 +82,7 @@ export const IconInput = ({
         {label ? label : ""}
       </label>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${justifyContentClasses(
+        className={`w-full flex items-center mb-2 text-sm text-basis dark:text-inverted ${justifyContentClasses(
           tll,
           trl
         )}`}
@@ -145,7 +145,7 @@ export const IconInput = ({
         />
       </div>
       <div
-        className={`w-full flex items-center mb-2 text-sm text-base dark:text-inverted ${justifyContentClasses(
+        className={`w-full flex items-center mb-2 text-sm text-basis dark:text-inverted ${justifyContentClasses(
           bll,
           brl
         )}`}

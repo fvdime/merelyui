@@ -17,7 +17,7 @@ export default {
   theme: {
     extend: {
       textColor: {
-        base: withOpacity('--color-text-base'),
+        basis: withOpacity('--color-text-base'),
         soft: withOpacity('--color-text-soft'),
         muted: withOpacity('--color-text-muted'),
         inverted: withOpacity('--color-text-inverted'),

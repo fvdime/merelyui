@@ -10,7 +10,7 @@ export const Footer = ({
 }: FooterProps) => {
   return (
     <footer
-      className={`bg-base text-base dark:bg-muted dark:text-inverted h-full w-full
+      className={`bg-base text-basis dark:bg-muted dark:text-inverted h-full w-full
     ${!(tertiary || quaternary) && "border-t border-base dark:border-inverted"}
     ${theme}
     `}

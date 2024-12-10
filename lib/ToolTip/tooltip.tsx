@@ -30,7 +30,7 @@ export const ToolTip = ({
       {button ? (
         button
       ) : (
-        <div className="dark:bg-button-inverted text-inverted bg-button-accent dark:text-base focus:ring-0 focus:outline-none focus:ring-base font-medium rounded-lg text-sm px-6 py-2.5 text-center transition duration-300 ease-in-out">
+        <div className="dark:bg-button-inverted text-inverted bg-button-accent dark:text-basis focus:ring-0 focus:outline-none focus:ring-base font-medium rounded-lg text-sm px-6 py-2.5 text-center transition duration-300 ease-in-out">
           {label}
         </div>
       )}

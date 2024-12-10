@@ -13,7 +13,7 @@ export const Button = ({
   theme,
 }: ButtonProps) => {
   const baseClasses =
-    "font-medium text-center bg-button-accent dark:bg-button-inverted text-inverted dark:text-base border border-base focus:ring focus:ring-base focus:outline-none scale-100 active:scale-90 transition-all ease-in duration-500";
+    "font-medium text-center bg-button-accent dark:bg-button-inverted text-inverted dark:text-basis border border-base focus:ring focus:ring-base focus:outline-none scale-100 active:scale-90 transition-all ease-in duration-500";
 
   const widthClasses = fullWidth ? "w-full" : "w-fit";
   const roundedClasses = rounded ? "rounded-full" : "rounded-md";

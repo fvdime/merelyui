@@ -64,12 +64,12 @@ export const Modal = React.forwardRef<ModalHandle, ModalProps>(
           }`}
         >
           <div className="relative w-full lg:w-1/2 my-8 mx-auto lg:max-w-3xl max-h-full lg:h-auto transition-transform transform duration-500">
-            <div className="h-full lg:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-base text-base dark:bg-muted dark:text-inverted outline-none focus:outline-none">
+            <div className="h-full lg:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-base text-basis dark:bg-muted dark:text-inverted outline-none focus:outline-none">
               <div className="flex items-center justify-between p-8 rounded-t">
                 <h3 className="text-xl font-semibold">{title}</h3>
                 <button
                   onClick={toggleModal}
-                  className="p-2 scale-100 text-base dark:text-inverted hover:scale-110 transition-transform ease-in-out duration-300"
+                  className="p-2 scale-100 text-basis dark:text-inverted hover:scale-110 transition-transform ease-in-out duration-300"
                 >
                   <svg
                     className="w-5 h-5"

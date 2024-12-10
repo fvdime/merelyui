@@ -10,7 +10,7 @@ const Button: React.FC<{
   <button
     type="button"
     onClick={onClick}
-    className="py-1.5 px-6 text-sm font-medium bg-button-inverted text-base dark:bg-muted dark:text-inverted rounded-md border hover:bg-button-inverted-hover dark:hover:bg-button-accent-hover focus:ring focus:ring-base focus:outline-none transition-all ease-in duration-300 self-end"
+    className="py-1.5 px-6 text-sm font-medium bg-button-inverted text-basis dark:bg-muted dark:text-inverted rounded-md border hover:bg-button-inverted-hover dark:hover:bg-button-accent-hover focus:ring focus:ring-base focus:outline-none transition-all ease-in duration-300 self-end"
   >
     {label}
   </button>

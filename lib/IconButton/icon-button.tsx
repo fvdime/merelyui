@@ -51,7 +51,7 @@ export const IconButton = ({
   theme,
 }: IconButtonProps) => {
   const baseClasses =
-    "flex flex-row items-center justify-center gap-2 text-base dark:text-inverted focus:ring focus:ring-base dark:focus:ring-inverted focus:outline-none transition-all ease-in duration-300";
+    "flex flex-row items-center justify-center gap-2 text-basis dark:text-inverted focus:ring focus:ring-base dark:focus:ring-inverted focus:outline-none transition-all ease-in duration-300";
   const widthClasses = fullWidth ? "w-full" : "w-fit";
   const roundedClasses = rounded ? "rounded-full" : "rounded-lg";
   const sizeClasses = large
