@@ -23,7 +23,7 @@ export const Accordion = ({ data, theme }: AccordionProps) => {
       {data.map((item, index) => (
         <div className="py-2 border-b border-base dark:border-inverted" key={index}>
           <button
-            className="flex items-center justify-between w-full text-left font-semibold px-2 py-1 hover:px-4 transition-all duration-300 ease-in-out cursor-pointer"
+            className="flex items-center justify-between w-full text-left font-semibold px-2 py-1 cursor-pointer"
             onClick={() => toggleAccordion(index)}
           >
             <h1 className="uppercase font-medium text-basis dark:text-inverted text-sm">{item.title}</h1>
