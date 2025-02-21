@@ -77,7 +77,7 @@ export const Clipboard = ({
                 </svg>
               </>
             )}
-            <h1 className="font-semibold text-sm">
+            <h1 className="font-semibold text-sm text-basis dark:text-inverted">
               {terminal ? "Terminal" : title || null}
             </h1>
           </div>
@@ -118,14 +118,14 @@ export const Clipboard = ({
       )}
       <div
         className={`
-      ${!title && !terminal && "w-full flex flex-row items-start justify-between"}
+      ${!title && !terminal && "w-full p-4 relative"}
       `}
       >
         <>{children}</>
         {!title && !terminal && (
           <button
             onClick={handleCopy}
-            className={`transition-opacity duration-300 ease-out p-4 ${
+            className={`absolute right-1 top-1 transition-opacity duration-300 ease-out p-4 ${
               animateOut ? "opacity-0" : "opacity-100"
             }`}
           >
